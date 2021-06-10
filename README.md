@@ -11,6 +11,6 @@ To initialise project -
 - pip3 install Flask
 - pip3 install PyMongo
 - pip3 install dnspython
-- pip3 install flask_pymongo
+- pip3 install flask-pymongo
 
 ---
