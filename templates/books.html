@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Manager</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+
+
     {% for book in books %}
         {{ book.book_name }}<br>
         {{ book.user_name }}<br>
         {{ book.description }}<br>
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}
