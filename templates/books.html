@@ -1,11 +1,49 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <!-- <ul class="collapsible">
+        {% for book in books %}
+        <li>
+            <div class="collapsible-header white-text indigo text-shadow">
+                <i class="fas fa-caret-down"></i>
+                <strong>{{ book.book_name }}</strong> : Last Edited {{ book.edited_last }}
+            </div>
 
-    {% for book in books %}
-        {{ book.book_name }}<br>
-        {{ book.user_name }}<br>
-        {{ book.description }}<br>
+            <div class="collapsible-body indigo lighten-5">
+                <p><strong>Genre:</strong> {{ book.genre }}</p>
+                <p><strong>Description:</strong> {{ book.description }}</p>
+                <p><strong>Author:</strong> <em> {{ book.user_name }}</em></p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul> -->
+<!-- CARD TUTORIAL FOR BOOKS -->
+<div class="flexbox-container">
+    {% for book in books %}    
+        <div class="card flex-card">
+            <div class="card__inner">  
+                <div class="card__face card__face--front">
+                    <h2>Book</h2>
+                </div>
+                <div class="card__face card__face--back">
+                    <div class="card__content">
+                        <div class="card__header">
+                            <img src="#GetFromProfile" alt="" class="pp">
+                            <h2><strong>{{ book.book_name }}</strong></h2>
+                        </div>
+                        <div class="card__body">
+                            <p>Genre : {{ book.genre }}</p>
+                            <p><strong>Description:</strong> {{ book.description }}</p>
+                            <p><strong>Author:</strong> <em> {{ book.user_name }}</em></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     {% endfor %}
+</div>
+
+
 
 {% endblock %}
