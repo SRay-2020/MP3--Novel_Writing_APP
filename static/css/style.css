@@ -51,6 +51,27 @@ div.content {
 }
 
 
+/* REGISTER PAGE */
+
+.register-text {
+    font-size: 20px;
+    font-weight: 500;
+    color: darkblue;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Media Queries for sidebar  */
 
 On screens that are less than 700px wide, make the sidebar into a topbar
