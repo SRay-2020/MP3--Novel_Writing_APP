@@ -20,11 +20,14 @@
                 <a href="#!" class="brand-logo">Scriptorium</a>
                
                 <ul class="right">
-                    <li><a href="{{ url_for('get_books') }}">Books</a></li>
-                    <li><a href="#">Search/</a></li>
-                    <li><a href="{{ url_for('login') }}">Login</a></li>
-                    <li><a href="#">Logout</a></li>
-                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    <li><a href="{{ url_for('get_books') }}">Home</a></li>
+                    {% if session.user %}
+                        <li><a href="#">Search/</a></li>
+                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('login') }}">Login</a></li>     
+                        <li><a href="{{ url_for('register') }}">Register</a></li>
+                    {% endif %}
                 </ul>
                 </div>
             </nav>
@@ -40,10 +43,14 @@
     </header>
 
 <div class="sidebar">
-    <a class="active" href="{{ url_for('get_books') }}">Books</a>
-    <a href="#">Chapters</a>
-    <a href="#">Characters</a>
-    <a href="#">Story Notes</a>
+    {% if session.user %}
+        <a class="active" href="{{ url_for('get_books') }}">Books</a>
+        <a href="#">Chapters</a>
+        <a href="#">Characters</a>
+        <a href="#">Story Notes</a>
+        <a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
+     {% else %}
+     {% endif %}
 </div>
 
     <section>
