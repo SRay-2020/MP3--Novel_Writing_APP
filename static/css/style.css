@@ -74,15 +74,17 @@ div.content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-left: 20%;
-    margin-top: 10%;
+    margin-left: 2%;
+    margin-top: 12%;
     align-items: center;
-   
+    margin-right: 1%;
+     height: 50vh;
+     width: 70vw;
 }
 
 .flex-card {
 margin: 10px;
-padding: 10px;
+padding: 0px;
 }
 
 
@@ -97,11 +99,16 @@ padding: 10px;
 }
 .card {
     margin: 2px;
+    margin-bottom: 25px;
     width: 282px;
     height: 450px;
     perspective: 1000px;
+    border-radius: 5%;
     background-color: rgb(137, 143, 163);
+    /* border: 3px solid rgb(75, 53, 43); */
+    box-shadow: none;
 }
+
 .card__inner {
     width: 100%;
     height: 100%;
@@ -129,19 +136,23 @@ padding: 10px;
 }
 
 .card__face--front h2 {
-     font-size: 50px!important;
+     font-size: 2rem!important;
 }
 
 .card__face--front {
-    background-image: linear-gradient(#684419, #442f1d);
+    background-image: linear-gradient(#4e3820, #3d2917);
     display:flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 3px;
+    /* align-items: center; */
+    /* justify-content: center; */
 }
 
 .card__face--front h2 {
     color: rgb(0, 0, 0);
-    font-size: 32px;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 .card__face--back {
@@ -156,7 +167,7 @@ padding: 10px;
 
 .card__header {
 position: relative;
-padding: 30px 30px 40px;
+padding: 10px 10px 20px;
 }
 
 .card__header::after {
@@ -168,14 +179,14 @@ padding: 30px 30px 40px;
     right: 0;
     bottom: 0;
     z-index: -1;
-    border-radius: 0 0 50% 0;
-    background-image: linear-gradient(#ffce00, #fe4880);
+    border-radius: 0 0 25% 0;
+    background-image: linear-gradient(#9fa8da, #7986cb);
 }
 
 .pp {
     display: block;
-    width: 128px;
-    height: 128px;
+    width: 60px;
+    height: 60px;
     margin: 0 auto 30px;
     border-radius: 25%;
     background-color: #fff;
@@ -184,27 +195,27 @@ padding: 30px 30px 40px;
 }
 
 .card__header h2 {
-    color: royalblue;
-    font-size: 32px;
-    font-weight: 800;
+    color: rgb(37, 37, 37)45);
+    font-size: 1rem;
+    font-weight: 600;
     text-transform: uppercase;
     text-align: center;
 }
 
 .card__body {
-    padding: 30px;
+    padding: 5px;
 }
 
 .card__body h3 {
-color: navy;
-font-size: 16px;
+color: rgb(20, 20, 46);
+font-size: 4px;
 font-weight: 500;
 margin-bottom: 15px;
 }
 
 .card__body p {
-    color: rgb(55, 55, 104);
-    font-size: 18px;
+    color: rgb(0, 11, 46);
+    font-size: 15px;
     line-height: 1.5;
 }
 
