@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
+    $('select').formSelect();
 });
 
 // const card = document.querySelector('.card__inner');
