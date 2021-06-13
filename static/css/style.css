@@ -2,6 +2,8 @@ body {
     background-color: rgb(137, 143, 163);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     min-height: 100vh;
+    width: 100vh;
+    overflow: hidden;
 }
 
 /* GENERAL REUSABLE STYES */
@@ -17,22 +19,185 @@ body {
 
 /* SIDEBAR  */
 /* The side navigation menu */
-.sidebar {
+/* .sidebar {
   margin: 0;
   padding: 0px;
   padding-top: 50px;
   padding-left: 30px;
   width: 225px;
   background-color: rgb(174, 179, 196);
-  position: fixed;
-  height: 100%;
+  position: absolute;
+  height: 140%;
   overflow: auto;
   font-size: 15px;
   text-align: justify;
 
+} */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100px;
+    background: #11101d;
+    padding: 6px 14px;
+    transition: all 0.5s ease;
 }
 
-/* Sidebar links */
+.sidebar.active {
+width: 240px;
+}
+
+.sidebar .logo-content .logo{
+color: #fff;
+display: flex; 
+height: 50px;
+width: 100%;
+align-items: center;
+opacity: 0;
+pointer-events: none;
+transition: all 0.5s ease;
+}
+
+.sidebar.active .logo-content .logo {
+    opacity: 1;
+    pointer-events: none;
+}
+
+.logo-content .logo i { 
+
+font-size: 28px;
+margin-right: 5px;
+}
+
+.logo-content .logo .logo_name {
+
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.sidebar #btn {
+    position: absolute;
+    color: #fff;
+    left: 50%;
+    top: 3%;
+    font-size: 25px;
+    height: 41px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    transform: translateY(-50%);
+}
+
+.sidebar.active #btn {
+    left: 74%;
+}
+
+.sidebar ul {
+    margin-top: 20px;
+}
+
+.sidebar ul li {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0 5px;
+    list-style: none;
+    line-height: 50px;
+}
+
+.sidebar ul li .tooltip {
+    position: absolute;
+    left: 122px;
+    top: 0;
+    transform: translate(50% , -10%);
+    border-radius: 6px;
+    height: 35px;
+    width: 122px;
+    background: #fff;
+    line-height: 35px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: 0s;
+    opacity: 0;
+    pointer-events: none;
+    display: block;
+
+}
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+
+.sidebar ul li:hover .tooltip {
+    transition: all 0,5s ease;
+    opacity: 1;
+    top: 50%;
+} 
+
+
+.sidebar ul li a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.7s ease;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.sidebar ul li a:hover{
+    color: #11101d;
+    background: #fff;
+}
+
+.sidebar ul li a i {
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.sidebar .links_name {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active .links_name{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.home-content {
+     position: absolute;
+     height: 100%;
+     width: calc(100% - 78px);
+     left: 78px;
+     transition: all 0.5s ease;
+}
+
+.home-content .main-test-text {
+
+    font-size: 25px;
+    font-weight: 500;
+    color: #11101d;
+    margin: 12px;
+}
+
+.sidebar.active ~ .home-content {
+    width: calc(100% - 240px);
+    left: 240px;
+}
+
+
+
+
+
+
+
+/* OLD Sidebar links
 .sidebar a {
   display: block;
   color: black;
@@ -40,24 +205,24 @@ body {
   text-decoration: none;
 }
 
-/* Active/current link */
+ Active/current link 
 .sidebar a.active {
   background-color: rgba(174, 179, 196, 0.911);
   color: white;
 }
 
-/* Links on mouse-over */
+ Links on mouse-over 
 .sidebar a:hover:not(.active) {
   background-color: rgba(119, 119, 119, 0.616);
   color: white;
 }
 
-/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+Page content. The value of the margin-left property should match the value of the sidebar's width property 
 div.content {
   margin-left: 225px;
   padding: 1px 16px;
   height: 1000px;
-}
+} */
 
 
 /* REGISTER PAGE */
@@ -74,7 +239,7 @@ div.content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-left: 2%;
+    margin-left: 24%;
     margin-top: 12%;
     align-items: center;
     margin-right: 1%;
