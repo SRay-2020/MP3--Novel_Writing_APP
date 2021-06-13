@@ -15,9 +15,9 @@
 
     <header>
         <!-- Top Navbar -->
-            <nav class="nav-extended text-shadow indigo lighten-3">
+            <nav class="nav-bar-location nav-extended text-shadow indigo lighten-3">
                 <div class="nav-wrapper">
-                <a href="#!" class="brand-logo">Scriptorium</a>
+                <a href="#!" class="brand-logo"></a>
                
                 <ul class="right">
                     <li><a href="{{ url_for('get_books') }}">Home</a></li>
@@ -25,8 +25,8 @@
 
                     <li>
                         <a href="">
-                            <i class="fas fa-search"></i>
                             <input type="text" placeholder="Search...">
+                            <!-- <i class="fas fa-search"></i> -->
                         </a>
                     </li>
 
@@ -73,30 +73,30 @@
         <li>
             <a href="">
                 <i class="fas fa-book"></i>
-                <span class="links_name">Books</span>
+                <span class="links_name" href="{{ url_for('get_books') }}">Books</span>
             </a>
-            <span class="tooltip">Dashboard</span> 
+            <span class="tooltip">Books</span> 
         </li>
          <li>
             <a href="">
                 <i class="fas fa-bookmark"></i>
                 <span class="links_name">Chapters</span>
             </a>
-            <span class="tooltip">Dashboard</span> 
+            <span class="tooltip">Chapters</span> 
         </li>
          <li>
             <a href="">
                 <i class="fas fa-user-circle"></i>
                 <span class="links_name">Characters</span>
             </a>
-            <span class="tooltip">Dashboard</span> 
+            <span class="tooltip">Characters</span> 
         </li>
          <li>
             <a href="">
                 <i class="far fa-sticky-note"></i>
                 <span class="links_name">Story Notes</span>
             </a>
-             <span class="tooltip">Dashboard</span> 
+             <span class="tooltip">Notes</span> 
         </li>
     </ul>
 </div>
@@ -116,7 +116,7 @@
     
 
     <main class="container home-content">
-        <div class="main-test-text">Test Text Goes Here</div>
+        <div class="main-test-text">The novel writing app</div>
         {% block content %}
         {% endblock %}
     </main>
