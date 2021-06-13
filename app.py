@@ -95,6 +95,11 @@ def profile(username):
     return render_template("profile.html", username=username)
 
 
+@app.route("/add_book")
+def add_book():
+    return render_template("add_book.html")
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

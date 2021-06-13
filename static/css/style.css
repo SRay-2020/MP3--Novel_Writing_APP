@@ -181,7 +181,7 @@ margin-right: 5px;
      position: absolute;
      height: 100%;
      width: calc(100% - 78px);
-     left: 145px;
+     left: 20%;
      transition: all 0.5s ease;
 }
 
@@ -430,3 +430,16 @@ On screens that are less than 400px, display the bar vertically, instead of hori
     float: none;
   }
 } 
+
+/* BOOKS PAGE */
+
+.book-create-btn {
+    padding-left: 50px;
+    padding-top: 10px;
+    transform: translate(800px, 31px);
+    position: relative;
+}
+
+.create-book-background {
+    background-color: #fff;
+}

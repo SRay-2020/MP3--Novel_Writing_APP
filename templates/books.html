@@ -17,8 +17,13 @@
         </li>
         {% endfor %}
     </ul> -->
+<!-- Button Add new books -->
+    <div class="book-create-btn plus-button">
+        <a class="waves-effect waves-light btn-large" href="{{ url_for('add_book') }}" ><i class="fas fa-plus left"></i>Create New Book</a>
+    </div>
 <!-- CARD TUTORIAL FOR BOOKS -->
 <div class="flexbox-container">
+
     {% for book in books %}    
         <div class="card flex-card">
             <div class="card__inner">  

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="teal center-align">Create New Book</h3>
+    <!-- ICON INPUT -->
+    <div class="main-page create-book-background">
+        <div class="row">
+            <form class="col s12" method="POST" action="#">
+                <div class="row">
+                    <div class="input-field col m8 offset-2">
+                        <i class="fas fa-book-open red-text"></i>
+                        <input id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix">Book Title</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="fas fa-theater-masks indigo-text"></i>
+                        <input id="icon_telephone" type="tel" class="validate">
+                        <label for="icon_telephone">Genre</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="fas fa-feather-alt green-text"></i>
+                        <input id="icon_telephone" type="tel" class="validate">
+                        <label for="icon_telephone">Author</label>
+                    </div>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+
+{% endblock %}
