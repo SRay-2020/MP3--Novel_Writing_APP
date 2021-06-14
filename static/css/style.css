@@ -3,7 +3,9 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     min-height: 100vh;
     width: 100vh;
-    overflow: hidden;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
 }
 
 /* GENERAL REUSABLE STYES */
@@ -11,30 +13,94 @@ body {
     text-shadow: 2px 2px 2px rgba (0, 0, 0, 0.5);
 }
 
-/* FLASHED MESSAGES */
-
+/* flashed messages */
 .flashes h4 {
     line-height: 2;
     padding-top: 30px;
 }
 
-/* SIDEBAR  */
-/* The side navigation menu */
-/* .sidebar {
-  margin: 0;
-  padding: 0px;
-  padding-top: 50px;
-  padding-left: 30px;
-  width: 225px;
-  background-color: rgb(174, 179, 196);
-  position: absolute;
-  height: 140%;
-  overflow: auto;
-  font-size: 15px;
-  text-align: justify;
+/* MAIN BODY */
 
-} */
+.container {
 
+    margin-top: 5%;
+    margin-left: 60%;
+}
+
+.base-content {
+     position: relative;
+     height: 100%;
+     width: calc(100% - 78px);
+     left: 20%;
+     transition: all 0.5s ease;
+     padding-top: 5%;
+    
+}
+
+.main-test-text {
+
+    font-size: 2rem;
+    font-weight: 500;
+    color: #11101d;
+    margin-left: 45px;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/* NAVBAR */
+
+nav
+{
+   position: fixed;
+   top: 0px;
+}
+
+.nav-bar-location {
+
+    position: absolute;
+    width: calc(100% - 78px);
+    left: 78px;
+    transition: all 0.5s ease;
+    padding: 0;
+    margin: 0;
+} 
+
+/* FOOTER */
+
+.footer {
+  flex-shrink: 0;
+}
+
+/* BOOKS PAGE */
+
+.book-page-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 4%;
+    margin-top: 5%;
+    align-items: center;
+    margin-right: 1%;
+    height: 50vh;
+    width: 70vw;
+    left: 156px;
+}
+
+
+.create-book-background {
+    background-color: #fff;
+}
+
+.book-create-btn {
+    padding-left: 50px;
+    padding-top: 10px;
+    transform: translate(800px, 31px);
+    position: relative;
+}
+
+
+
+/* SIDE BAR */
 .sidebar {
     position: fixed;
     top: 0;
@@ -177,73 +243,10 @@ margin-right: 5px;
     pointer-events: auto;
 }
 
-.home-content {
-     position: absolute;
-     height: 100%;
-     width: calc(100% - 78px);
-     left: 20%;
-     transition: all 0.5s ease;
-}
-
-.home-content .main-test-text {
-
-    font-size: 25px;
-    font-weight: 500;
-    color: #11101d;
-    margin: 12px;
-    margin-top: 15px;
-    margin-left: 45px;
-}
-
 .sidebar.active ~ .home-content {
     width: calc(100% - 240px);
     left: 240px;
 }
-
-.nav-bar-location {
-
-    position: absolute;
-     height: 100%;
-     width: calc(100% - 78px);
-     left: 78px;
-     transition: all 0.5s ease;
-     padding-bottom: 10px;
-
-}
-
-
-
-
-
-
-
-/* OLD Sidebar links
-.sidebar a {
-  display: block;
-  color: black;
-  padding: 16px;
-  text-decoration: none;
-}
-
- Active/current link 
-.sidebar a.active {
-  background-color: rgba(174, 179, 196, 0.911);
-  color: white;
-}
-
- Links on mouse-over 
-.sidebar a:hover:not(.active) {
-  background-color: rgba(119, 119, 119, 0.616);
-  color: white;
-}
-
-Page content. The value of the margin-left property should match the value of the sidebar's width property 
-div.content {
-  margin-left: 225px;
-  padding: 1px 16px;
-  height: 1000px;
-} */
-
 
 /* REGISTER PAGE */
 
@@ -253,26 +256,13 @@ div.content {
     color: darkblue;
     text-align: center;
 }
-/* Book Container */
 
-.flexbox-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-left: 4%;
-    margin-top: 5%;
-    align-items: center;
-    margin-right: 1%;
-     height: 50vh;
-     width: 70vw;
-     left: 156px;
-}
+/* Book Container */
 
 .flex-card {
 margin: 10px;
 padding: 0px;
 }
-
 
 
 /* BOOK CARD FOR FLIPPENING */  
@@ -310,7 +300,6 @@ padding: 0px;
 
 
 .card__face {
-
     position: absolute;
     width: 100%;
     height: 100%;
@@ -318,11 +307,6 @@ padding: 0px;
     backface-visibility: hidden;
     overflow: hidden;
     border-radius: 10px;
-    /* box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2); */
-}
-
-.card__face--front h2 {
-     font-size: 2rem!important;
 }
 
 .card__face--front {
@@ -369,17 +353,6 @@ padding: 10px 10px 20px;
     background-image: linear-gradient(#9fa8da, #7986cb);
 }
 
-.pp {
-    display: block;
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 30px;
-    border-radius: 25%;
-    background-color: #fff;
-    border: 5px solid #fff;
-    object-fit: cover;
-}
-
 .card__header h2 {
     color: rgb(37, 37, 37)45);
     font-size: 1rem;
@@ -406,9 +379,6 @@ margin-bottom: 15px;
 }
 
 
-
-
-
 /* Media Queries for sidebar  */
 
 On screens that are less than 700px wide, make the sidebar into a topbar
@@ -431,15 +401,6 @@ On screens that are less than 400px, display the bar vertically, instead of hori
   }
 } 
 
-/* BOOKS PAGE */
 
-.book-create-btn {
-    padding-left: 50px;
-    padding-top: 10px;
-    transform: translate(800px, 31px);
-    position: relative;
-}
 
-.create-book-background {
-    background-color: #fff;
-}
+

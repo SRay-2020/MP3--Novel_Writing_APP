@@ -15,53 +15,32 @@
 
     <header>
         <!-- Top Navbar -->
-            <nav class="nav-bar-location nav-extended text-shadow indigo lighten-3">
+            <nav class="nav-bar-location nav-extended text-shadow indigo lighten-3 navbar-fixed-top">
                 <div class="nav-wrapper">
-                <a href="#!" class="brand-logo"></a>
-               
-                <ul class="right">
-                    <li><a href="{{ url_for('get_books') }}">Home</a></li>
-                    {% if session.user %}
+                    <!-- <a href="#!" class="brand-logo"><p>The novel writing app </p></a> -->
+                
+                    <ul class="right">
+                        <li><a href="{{ url_for('get_books') }}">Home</a></li>
+                        {% if session.user %}
 
-                    <li>
-                        <a href="">
-                            <input type="text" placeholder="Search...">
-                            <!-- <i class="fas fa-search"></i> -->
-                        </a>
-                    </li>
+                        <li>
+                            <a href="">
+                                <input type="text" placeholder="Search...">
+                                <!-- <i class="fas fa-search"></i> -->
+                            </a>
+                        </li>
 
-                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
-                    {% else %}
-                        <li><a href="{{ url_for('login') }}">Login</a></li>     
-                        <li><a href="{{ url_for('register') }}">Register</a></li>
-                    {% endif %}
-                </ul>
+                            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                        {% else %}
+                            <li><a href="{{ url_for('login') }}">Login</a></li>     
+                            <li><a href="{{ url_for('register') }}">Register</a></li>
+                        {% endif %}
+                    </ul>
                 </div>
             </nav>
-        <!-- Mobile Side Navbar-->
-            <!-- <ul class="sidenav" id="mobile-demo">
-                hide-on-med-and-down
-                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
-                <li><a href="{{ url_for('get_books') }}">Books</a></li>
-                <li><a href="badges.html">Chapters</a></li>
-                <li><a href="collapsible.html">Characters</a></li>
-                <li><a href="mobile.html">Story Notes</a></li>
-            </ul> -->
     </header>
-
-<!-- <div class="sidebar">
-    {% if session.user %}
-        <a class="active" href="{{ url_for('get_books') }}">Books</a>
-        <a href="#">Chapters</a>
-        <a href="#">Characters</a>
-        <a href="#">Story Notes</a>
-        <a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
-     {% else %}
-     {% endif %}
-</div> -->
-
+<!-- SIDE BAR -->
 <div class="sidebar">  
-
     <div class="logo-content">
         <div class="logo">
             <i class="fas fa-scroll"></i>
@@ -113,13 +92,16 @@
             {% endif %}
         {% endwith %}
     </section>
+    <main class="container">
+    
+    {% block content %}
+    {% endblock %}
+    <footer>
+            &copy; Copyright 2021 by <a href="http://domain.invalid/">Stephen R</a>.
+    </footer>
+    </main>
     
 
-    <main class="container home-content">
-        <div class="main-test-text">The novel writing app</div>
-        {% block content %}
-        {% endblock %}
-    </main>
     <script>
         let btn = document.querySelector("#btn");
         let sidebar = document.querySelector(".sidebar");
@@ -132,8 +114,6 @@
         Searchbtn.onclick = function() {
             sidebar.classList.toggle("active");
         }
-
-
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
