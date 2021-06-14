@@ -90,7 +90,7 @@ def logout():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # Retrieve users username from database
-    usernamme = mongo.db.users.find_one(
+    username = mongo.db.users.find_one(
         {"username": session['user']})["username"]
     return render_template("profile.html", username=username)
 
@@ -103,7 +103,7 @@ def add_book():
             "genre": request.form.get("genre_name"),
             "author": request.form.get("author_name"),
             "characters": request.form.getlist("characters_list"),
-            # "created_by": session['user']
+            "created_by": session['user']
         }
         mongo.db.books.insert_one(book)
         flash("Book Successfully Added")
