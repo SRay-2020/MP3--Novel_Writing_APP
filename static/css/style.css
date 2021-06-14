@@ -145,6 +145,11 @@ nav
     font-size: .90rem;
 }
 
+.btn-small {
+    margin: 5px;
+    
+}
+
 
 
 /* SIDE BAR */
