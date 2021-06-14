@@ -1,29 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <!-- <ul class="collapsible">
-        {% for book in books %}
-        <li>
-            <div class="collapsible-header white-text indigo text-shadow">
-                <i class="fas fa-caret-down"></i>
-                <strong>{{ book.book_name }}</strong> : Last Edited {{ book.edited_last }}
-            </div>
-
-            <div class="collapsible-body indigo lighten-5">
-                <p><strong>Genre:</strong> {{ book.genre }}</p>
-                <p><strong>Description:</strong> {{ book.description }}</p>
-                <p><strong>Author:</strong> <em> {{ book.user_name }}</em></p>
-            </div>
-        </li>
-        {% endfor %}
-    </ul> -->
+    
 <!-- Button Add new books -->
 <div class="row title-row">
-    <div class="col col-6 book-title">
+    <div class="col s6 book-title">
         <h2 class="underline">Book Library</h2>
     </div>
-    <div class="col col-2"></div>
-    <div class=" col col-4">
+    <div class="col s2"></div>
+    <div class=" col s4">
         <div class="book-create-btn plus-button">
         <a class="waves-effect waves-light btn-large" href="{{ url_for('add_book') }}" ><i class="fas fa-plus left"></i>Create New Book</a>
         </div>

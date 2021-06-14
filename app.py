@@ -24,6 +24,12 @@ def get_books():
     return render_template("books.html", books=books)
 
 
+@app.route("/get_chapters")
+def get_chapters():
+    chapters = list(mongo.db.chapters.find())
+    return render_template("chapters.html", chapters=chapters)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -111,6 +117,22 @@ def add_book():
 
     characters = mongo.db.characters.find().sort("character_name", 1)
     return render_template("add_book.html", characters=characters)
+
+@app.route("/add_chapter", methods=["GET", "POST"])
+def add_chapter():
+    if request.method == "POST":
+        chapter = {
+            "chapter_name": request.form.get("chapter_name"),
+            "outline": request.form.get("outline"),
+            "author": request.form.get("author_name"),
+            "created_by": session['user']
+        }
+        mongo.db.chapters.insert_one(chapter)
+        flash("Chapter Successfully Added")
+        return redirect(url_for("get_chapters"))
+
+    characters = mongo.db.characters.find().sort("character_name", 1)
+    return render_template("add_chapter.html", characters=characters)
 
 
 

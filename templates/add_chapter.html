@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="teal center-align">Add New Chapters</h3>
+    <!-- ICON INPUT -->
+    <div class="main-page create-book-background">
+
+        <div class="row card-panel grey lighten-5">
+            <form class="col s12" method="POST" action="{{ url_for('add_chapter') }}">
+                <!-- TITLE -->
+                <div class="row">
+                    <div class="input-field col m8 offset-2">
+                        <i class="fas fa-book-open prefix red-text"></i>
+                        <input id="book_name" name="book_name" minlength="5" maxlength="40" type="text" class="validate"
+                            required>
+                        <label for="book_name">Chapter Title</label>
+                    </div>
+                </div>
+                <!-- GENRE -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-theater-masks prefix indigo-text"></i>
+                        <input id="sequence_name" name="sequence_name" minlength="5" maxlength="40" type="tel" class="validate"
+                            required>
+                        <label for="sequence_name">Sequence</label>
+                    </div>
+                </div>
+                <!-- AUTHOR -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-feather-alt prefix green-text"></i>
+                        <input id="outline_name" name="outline_name" minlength="5" maxlength="40" type="tel" class="validate"
+                            required>
+                        <label for="outline_name">Outline/Summary</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-feather-alt prefix green-text"></i>
+                        <input id="author_name" name="author_name" minlength="5" maxlength="40" type="tel" class="validate"
+                            required>
+                        <label for="author_name">Text Field</label>
+                    </div>
+                </div>
+
+                <!-- Character Select - for Chapter Page -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-folder-open prefix amber-text"></i>
+                        <select multiple id="character_names" name="character_names" class="validate" required>
+                            <option value="" disabled selected>Select Characters</option>
+                            {% for character in characters %}
+                                <option value="{{ character.character_names }}">{{ character.character_names }}</option>
+                            {% endfor %}
+                            <!-- "characters": request.form.getlist("characters_list") - needs to go in app.py file *def add_chapter* to return list of characters  -->
+                            
+                        </select>
+                        <label for="character_names">Characters</label>
+                    </div>
+                </div>
+                <!-- Add button -->
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button class="btn-large waves-effect waves-light" type="submit" name="">Add Chapter
+                            <i class="fas fa-plus-square right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -50,16 +50,16 @@
     </div>
     <ul class="nav-list">
         <li>
-            <a href="">
+            <a href="{{ url_for('get_books') }}">
                 <i class="fas fa-book"></i>
                 <span class="links_name" href="{{ url_for('get_books') }}">Books</span>
             </a>
             <span class="tooltip">Books</span> 
         </li>
          <li>
-            <a href="">
+            <a href="{{ url_for('get_chapters') }}">
                 <i class="fas fa-bookmark"></i>
-                <span class="links_name">Chapters</span>
+                <span class="links_name" href="{{ url_for('get_chapters') }}">Chapters</span>
             </a>
             <span class="tooltip">Chapters</span> 
         </li>
