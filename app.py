@@ -123,9 +123,10 @@ def add_chapter():
     if request.method == "POST":
         chapter = {
             "chapter_name": request.form.get("chapter_name"),
-            "outline": request.form.get("outline"),
+            "outline": request.form.get("outline_name"),
             "author": request.form.get("author_name"),
-            "created_by": session['user']
+            "sequence": request.form.get("sequence_name"),
+            "author": session['user']
         }
         mongo.db.chapters.insert_one(chapter)
         flash("Chapter Successfully Added")

@@ -119,6 +119,31 @@ nav
     transform: translate(45%, 4%);
 }
 
+/* CHAPTERS PAGE */
+
+.chapter-info {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.collapsible-body {
+    background-color: #eeecec;
+}
+
+
+.outline-text {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #a30e3b;
+    font-size: 1rem;
+}
+
+.author-text {
+    margin-top: 6rem;
+    font-weight: 500;
+    color: #221c63;
+    font-size: .90rem;
+}
 
 
 
