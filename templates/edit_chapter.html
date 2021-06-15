@@ -21,7 +21,7 @@
                     <div class="input-field col s12">
                         <i class="fas fa-list-ol prefix indigo-text"></i>
                         <input id="sequence_name" name="sequence_name" minlength="5" maxlength="40"
-                            value="{{ chapter.sequence_name }}" type="text" class="validate" required>
+                            value="{{ chapter.sequence }}" type="text" class="validate" required>
                         <label for="sequence_name">Sequence - example: Chapter 1</label>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                         <i class="fas fa-feather-alt prefix green-text"></i>
                         <textarea id="outline_name" name="outline_name" minlength="5" 
                             maxlength="400" class="validate materialize-textarea" required>
-                            {{- chapter.outline_name -}} </textarea>
+                            {{- chapter.outline -}} </textarea>
                         <label for="outline_name">Chapter Outline</label>
                     </div>
                 </div>
