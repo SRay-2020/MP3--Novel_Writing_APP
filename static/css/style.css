@@ -406,7 +406,7 @@ padding: 10px 10px 20px;
 }
 
 .card__header h2 {
-    color: rgb(37, 37, 37)45);
+    color: rgb(37, 37, 37);
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -433,7 +433,7 @@ margin-bottom: 15px;
 
 /* Media Queries for sidebar  */
 
-On screens that are less than 700px wide, make the sidebar into a topbar
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
   .sidebar {
     height: auto;
@@ -445,7 +445,7 @@ On screens that are less than 700px wide, make the sidebar into a topbar
   div.content {margin-left: 0;}
 }
 
-On screens that are less than 400px, display the bar vertically, instead of horizontally 
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally  */
 @media screen and (max-width: 400px) {
   .sidebar a {
     text-align: center;

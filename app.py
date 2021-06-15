@@ -8,6 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
+
 app = Flask(__name__)
 
 
@@ -16,6 +17,7 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
+
 
 @app.route("/")
 @app.route("/get_books")
@@ -43,7 +45,7 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password" : generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(register)
 
@@ -59,25 +61,24 @@ def login():
     if request.method == "POST":
         # Check if username already exists
         existing_user = mongo.db.users.find_one(
-            {"username":request.form.get("username").lower()})
+            {"username": request.form.get("username").lower()})
 
         if existing_user:
-            # match password to hash
+            # Ensure password matches
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
-                        
+                    existing_user["password"], request.form.get("password")):
+                        session["user"] = request.form.get("username").lower()
+                        flash("Welcome, {}".format(
+                            request.form.get("username")))
+                        return redirect(url_for(
+                            "profile", username=session["user"]))
             else:
-                # Password does not match stored
+                # Invalid password match
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
 
-        else: 
-            # Username not registered
+        else:
+            # User not registered
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
@@ -90,7 +91,6 @@ def logout():
     flash("You have been successfully logged out")
     session.pop("user")
     return redirect(url_for("login"))
-
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
@@ -114,14 +114,12 @@ def add_book():
         }
         # Check if name in use
         existing_books = mongo.db.books.find_one(
-                {"book_name":request.form.get("book_name").lower()})
+                {"book_name": request.form.get("book_name").lower()})
 
         if existing_books:
             flash("Name already in use, please enter unique book name")
             return redirect(url_for(add_book))
             # Check if username already exists
-
-        
 
         mongo.db.books.insert_one(book)
         flash("Book Successfully Added")
@@ -130,9 +128,10 @@ def add_book():
     characters = mongo.db.characters.find().sort("character_name", 1)
     return render_template("add_book.html", characters=characters)
 
+
 @app.route("/edit_book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
-    
+
     if request.method == "POST":
         submitb = {
             "book_name": request.form.get("book_name"),
@@ -144,7 +143,6 @@ def edit_book(book_id):
         }
         mongo.db.books.update({"_id": ObjectId(book_id)}, submitb)
         flash("Book Successfully Edited")
-
 
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     characters = mongo.db.characters.find().sort("character_name", 1)
@@ -165,7 +163,6 @@ def add_chapter():
         chapter = {
             "chapter_name": request.form.get("chapter_name"),
             "outline": request.form.get("outline_name"),
-            "author": request.form.get("author_name"),
             "sequence": request.form.get("sequence_name"),
             "book_name": request.form.get("book_name"),
             "author": session['user']
@@ -181,12 +178,11 @@ def add_chapter():
 
 @app.route("/edit_chapter/<chapter_id>", methods=["GET", "POST"])
 def edit_chapter(chapter_id):
-    
+
     if request.method == "POST":
         submit = {
             "chapter_name": request.form.get("chapter_name"),
             "outline": request.form.get("outline_name"),
-            "author": request.form.get("author_name"),
             "sequence": request.form.get("sequence_name"),
             "book_name": request.form.get("book_name"),
             "author": session['user']
@@ -197,9 +193,10 @@ def edit_chapter(chapter_id):
 
     books = mongo.db.books.find().sort("book_name", 1)
     chapter = mongo.db.chapters.find_one({"_id": ObjectId(chapter_id)})
-    characters = mongo.db.characters.find().sort("character_name", 1)
+    # characters = mongo.db.characters.find().sort("character_name", 1)
     return render_template(
-        "edit_chapter.html", chapter=chapter, characters=characters, books=books)
+        "edit_chapter.html", chapter=chapter, books=books)
+
 
 @app.route("/delete_chapter/<chapter_id>")
 def delete_chapter(chapter_id):
@@ -208,11 +205,7 @@ def delete_chapter(chapter_id):
     return redirect(url_for("get_chapters"))
 
 
-
-
-
-
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-            port = int(os.environ.get("PORT")),
-            debug = True)
+            port=int(os.environ.get("PORT")),
+            debug=True)
