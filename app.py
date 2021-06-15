@@ -146,7 +146,6 @@ def delete_book(book_id):
     return redirect(url_for("get_books"))
 
 
-
 @app.route("/add_chapter", methods=["GET", "POST"])
 def add_chapter():
     if request.method == "POST":
@@ -155,14 +154,16 @@ def add_chapter():
             "outline": request.form.get("outline_name"),
             "author": request.form.get("author_name"),
             "sequence": request.form.get("sequence_name"),
+            "book_name": request.form.get("book.book_name"),
             "author": session['user']
         }
+
         mongo.db.chapters.insert_one(chapter)
         flash("Chapter Successfully Added")
         return redirect(url_for("get_chapters"))
 
-    characters = mongo.db.characters.find().sort("character_name", 1)
-    return render_template("add_chapter.html", characters=characters)
+    books = mongo.db.books.find().sort("book_name", 1)
+    return render_template("add_chapter.html", books=books)
 
 
 @app.route("/edit_chapter/<chapter_id>", methods=["GET", "POST"])
@@ -174,16 +175,18 @@ def edit_chapter(chapter_id):
             "outline": request.form.get("outline_name"),
             "author": request.form.get("author_name"),
             "sequence": request.form.get("sequence_name"),
+            "book_name": request.form.get("book.book_name"),
             "author": session['user']
         }
+
         mongo.db.chapters.update({"_id": ObjectId(chapter_id)}, submit)
         flash("Chapter Successfully Edited")
 
-
+    books = mongo.db.books.find().sort("book_name", 1)
     chapter = mongo.db.chapters.find_one({"_id": ObjectId(chapter_id)})
     characters = mongo.db.characters.find().sort("character_name", 1)
     return render_template(
-        "edit_chapter.html", chapter=chapter, characters=characters)
+        "edit_chapter.html", chapter=chapter, characters=characters, books=books)
 
 @app.route("/delete_chapter/<chapter_id>")
 def delete_chapter(chapter_id):

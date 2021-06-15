@@ -35,19 +35,17 @@
                         <label for="outline_name">Chapter Outline</label>
                     </div>
                 </div>
-                <!-- Character Select - for Chapter Page -->
+                <!-- Book Select - for Chapter Page -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-folder-open prefix amber-text"></i>
-                        <select multiple id="character_names" name="character_names" class="validate" required>
-                            <option value="" disabled selected>Select Characters</option>
-                            {% for character in characters %}
-                                <option value="{{ character.character_names }}">{{ character.character_names }}</option>
+                        <select id="book_name" name="book_name" class="validate" required>
+                            <option value="" disabled selected></option>
+                            {% for book in books %}
+                                <option value="{{ book.book_name }}">{{ book.book_name }}</option>
                             {% endfor %}
-                            <!-- "characters": request.form.getlist("characters_list") - needs to go in app.py file *def add_chapter* to return list of characters  -->
-                            
                         </select>
-                        <label for="character_names">Characters</label>
+                        <label for="book_name">Select Book</label>
                     </div>
                 </div>
                 <!-- Add button -->
