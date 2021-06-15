@@ -5,7 +5,6 @@
         <div class="col s6 book-title">
             <h2 class="underline">Chapters</h2>
         </div>
-        <div class="col s2"></div>
         <div class=" col s4">
             <div class="book-create-btn plus-button">
             <a class="waves-effect waves-light btn-large" href="{{ url_for('add_chapter') }}" ><i class="fas fa-plus left"></i>Add New Chapter</a>
@@ -13,7 +12,7 @@
         </div>
     </div>
    {% if chapters|length > 0 %}
-    <ul class="collapsible">
+    <ul class="collapsible chapter-collapsible">
         {% for chapter in chapters %}
         <li>
             <div class="collapsible-header white-text teal darken-2 text-shadow">
@@ -28,7 +27,7 @@
             </div>
 
             <div class="collapsible-body">
-                <p class="outline-text"> {{ chapter.chapter_name }}</p>
+                <h4 class="chap-name-text"> {{ chapter.chapter_name }}</h4>
                 <p class="outline-text">{{ chapter.outline }}</p>
                 <p class="author-text"><em>Created by:{{ chapter.author }}</em></p>
                 {% if session.user|lower == chapter.author|lower %}
