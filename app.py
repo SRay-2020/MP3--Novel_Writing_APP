@@ -139,10 +139,32 @@ def add_chapter():
 
 @app.route("/edit_chapter/<chapter_id>", methods=["GET", "POST"])
 def edit_chapter(chapter_id):
+    
+    if request.method == "POST":
+        submit = {
+            "chapter_name": request.form.get("chapter_name"),
+            "outline": request.form.get("outline_name"),
+            "author": request.form.get("author_name"),
+            "sequence": request.form.get("sequence_name"),
+            "author": session['user']
+        }
+        mongo.db.chapters.update({"_id": ObjectId(chapter_id)}, submit)
+        flash("Chapter Successfully Edited")
+
+
     chapter = mongo.db.chapters.find_one({"_id": ObjectId(chapter_id)})
     characters = mongo.db.characters.find().sort("character_name", 1)
     return render_template(
         "edit_chapter.html", chapter=chapter, characters=characters)
+
+@app.route("/delete_chapter/<chapter_id>")
+def delete_chapter(chapter_id):
+    mongo.db.chapters.remove({"_id": ObjectId(chapter_id)})
+    flash("Chapter Successfully Deleted")
+    return redirect(url_for("get_chapters"))
+
+
+
 
 
 
