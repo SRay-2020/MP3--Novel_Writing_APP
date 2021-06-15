@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="teal center-align">Create New Book</h3>
+    <!-- ICON INPUT -->
+    <div class="main-page create-book-background">
+
+        <div class="row card-panel grey lighten-5">
+            <form class="col s12" method="POST" action="{{ url_for('edit_book'), book_id=book._id)  }}">
+                <!-- TITLE -->
+                <div class="row">
+                    <div class="input-field col m8 offset-2">
+                        <i class="fas fa-book-open prefix red-text"></i>
+                        <input id="book_name" name="book_name" minlength="5" maxlength="40"
+                            value="{{ book.book_name }} type="text" class="validate" required>
+                        <label for="book_name">Book Title</label>
+                    </div>
+                </div>
+                <!-- GENRE -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-theater-masks prefix indigo-text"></i>
+                        <input id="genre_name" name="genre_name" minlength="5" maxlength="40"
+                            value="{{ book.genre }}" type="text" class="validate" required>
+                        <label for="genre_name">Genre</label>
+                    </div>
+                </div>
+                <!-- AUTHOR -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-feather-alt prefix green-text"></i>
+                        <input id="author_name" name="author_name" minlength="5" maxlength="40"
+                            value="{{ book.author }}" type="text" class="validate" required>
+                        <label for="author_name">Author</label>
+                    </div>
+                </div>
+                <!-- Character Select - for Chapter Page -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-folder-open prefix amber-text"></i>
+                        <select multiple id="character_names" name="character_names" class="validate" required>
+                            <option value="" disabled selected>Select Characters</option>
+                            {% for character in characters %}
+                                <option value="{{ character.character_names }}">{{ character.character_names }}</option>
+                            {% endfor %}
+                            <!-- "characters": request.form.getlist("characters_list") - needs to go in app.py file *def add_chapter* to return list of characters  -->
+                            
+                        </select>
+                        <label for="character_names">Characters</label>
+                    </div>
+                </div>
+                <!-- Add button -->
+                <div class="row">
+                     <div class="col s12 center-align">
+                        <a href="{{ url_for('get_books') }}" class="btn-large waves-effect waves-light red" type="submit">
+                            Cancel <i class="fas fa-times-circle right"></i>
+                        </a>
+                        <button class="btn-large waves-effect waves-light" type="submit" name="">Save
+                            <i class="fas fa-edit right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+{% endblock %}
