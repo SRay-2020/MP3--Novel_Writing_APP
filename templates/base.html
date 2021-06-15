@@ -63,19 +63,20 @@
             </a>
             <span class="tooltip">Chapters</span> 
         </li>
-         <li>
-            <a href="">
-                <i class="fas fa-user-circle"></i>
-                <span class="links_name">Characters</span>
-            </a>
-            <span class="tooltip">Characters</span> 
-        </li>
+        
          <li>
             <a href="">
                 <i class="far fa-sticky-note"></i>
                 <span class="links_name">Story Notes</span>
             </a>
              <span class="tooltip">Notes</span> 
+        </li>
+         <li>
+            <a href="{{ url_for('profile', username=session['user']) }}">
+                <i class="fas fa-user-circle"></i>
+                <span class="links_name"  href="{{ url_for('profile', username=session['user']) }}">Profile</span>
+            </a>
+            <span class="tooltip">Profile</span> 
         </li>
     </ul>
 </div>
