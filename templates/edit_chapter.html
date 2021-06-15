@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="teal center-align">Add New Chapters</h3>
+    <h3 class="teal center-align">Edit Chapters</h3>
     <!-- ICON INPUT -->
     <div class="main-page create-book-background">
 
         <div class="row card-panel grey lighten-5">
-            <form class="col s12" method="POST" action="{{ url_for('add_chapter') }}">
+            <form class="col s12" method="POST" action="{{ url_for('edit_chapter', chapter_id=chapter._id) }}">
                 <!-- TITLE -->
                 <div class="row">
                     <div class="input-field col m8 offset-2">
                         <i class="fas fa-book-open prefix red-text"></i>
-                        <input id="chapter_name" name="chapter_name" minlength="5" maxlength="40" type="text" class="validate"
-                            required>
+                        <input id="chapter_name" name="chapter_name" minlength="5" maxlength="40"
+                            value="{{ chapter.chapter_name }}" type="text" class="validate" required>
                         <label for="chapter_name">Chapter Title</label>
                     </div>
                 </div>
@@ -20,8 +20,8 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-list-ol prefix indigo-text"></i>
-                        <input id="sequence_name" name="sequence_name" minlength="5" maxlength="40" type="tel" class="validate"
-                            required>
+                        <input id="sequence_name" name="sequence_name" minlength="5" maxlength="40"
+                            value="{{ chapter.sequence_name }}" type="text" class="validate" required>
                         <label for="sequence_name">Sequence - example: Chapter 1</label>
                     </div>
                 </div>
@@ -29,9 +29,9 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-feather-alt prefix green-text"></i>
-                        <textarea id="outline_name" name="outline_name" minlength="5" maxlength="400"
-                             type="tel" class="validate materialize-textarea"
-                            required></textarea>
+                        <textarea id="outline_name" name="outline_name" minlength="5" 
+                            maxlength="400" class="validate materialize-textarea" required>
+                            {{- chapter.outline_name -}} </textarea>
                         <label for="outline_name">Chapter Outline</label>
                     </div>
                 </div>
@@ -53,8 +53,8 @@
                 <!-- Add button -->
                 <div class="row">
                     <div class="col s12 center-align">
-                        <button class="btn-large waves-effect waves-light" type="submit" name="">Add Chapter
-                            <i class="fas fa-plus-square right"></i>
+                        <button class="btn-large waves-effect waves-light" type="submit" name="">Edit Chapter
+                            <i class="fas fa-edit right"></i>
                         </button>
                     </div>
                 </div>

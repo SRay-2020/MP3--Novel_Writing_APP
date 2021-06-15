@@ -30,8 +30,8 @@
             <div class="collapsible-body">
                 <p class="outline-text">{{ chapter.outline }}</p>
                 <p class="author-text"><em>Created by:{{ chapter.author }}</em></p>
-                <a href="" class="waves-effect waves-light  teal btn-small">Done</a>
-                <a href="" class="waves-effect waves-light red btn-small">Edit</a>
+                <a href="{{ url_for('edit_chapter', chapter_id=chapter._id) }}" class="waves-effect waves-light  amber btn-small">Edit</a>
+                <a href="" class="waves-effect waves-light red btn-small">Delete</a>
             </div>
         </li>
         {% endfor %}

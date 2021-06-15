@@ -118,6 +118,7 @@ def add_book():
     characters = mongo.db.characters.find().sort("character_name", 1)
     return render_template("add_book.html", characters=characters)
 
+
 @app.route("/add_chapter", methods=["GET", "POST"])
 def add_chapter():
     if request.method == "POST":
@@ -134,6 +135,14 @@ def add_chapter():
 
     characters = mongo.db.characters.find().sort("character_name", 1)
     return render_template("add_chapter.html", characters=characters)
+
+
+@app.route("/edit_chapter/<chapter_id>", methods=["GET", "POST"])
+def edit_chapter(chapter_id):
+    chapter = mongo.db.chapters.find_one({"_id": ObjectId(chapter_id)})
+    characters = mongo.db.characters.find().sort("character_name", 1)
+    return render_template(
+        "edit_chapter.html", chapter=chapter, characters=characters)
 
 
 
