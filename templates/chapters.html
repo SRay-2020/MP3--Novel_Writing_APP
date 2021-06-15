@@ -23,12 +23,12 @@
                 </div>
 
                 <div class="col s12 chapter-info">
-                <strong>{{ chapter.sequence }}: {{ chapter.chapter_name }}</strong> 
+                <strong>{{ chapter.book_name }}: {{ chapter.sequence }}</strong> 
                 </div>
             </div>
 
             <div class="collapsible-body">
-                <p class="outline-text">{{ chapter.outline }}</p>
+                <p class="outline-text"> {{ chapter.chapter_name }}</p>
                 <p class="outline-text">{{ chapter.outline }}</p>
                 <p class="author-text"><em>Created by:{{ chapter.author }}</em></p>
                 {% if session.user|lower == chapter.author|lower %}
