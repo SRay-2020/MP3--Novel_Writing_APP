@@ -35,18 +35,14 @@
                     </div>
                 </div>
                 <!-- Character Select - for Chapter Page -->
+                <!-- OUTLINE -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-folder-open prefix amber-text"></i>
-                        <select multiple id="character_names" name="character_names" class="validate" required>
-                            <option value="" disabled selected>Select Characters</option>
-                            {% for character in characters %}
-                                <option value="{{ character.character_names }}">{{ character.character_names }}</option>
-                            {% endfor %}
-                            <!-- "characters": request.form.getlist("characters_list") - needs to go in app.py file *def add_chapter* to return list of characters  -->
-                            
-                        </select>
-                        <label for="character_names">Characters</label>
+                        <i class="fas fa-feather-alt prefix green-text"></i>
+                        <textarea id="book_description" name="book_description" minlength="5" maxlength="400"
+                             type="tel" class="validate materialize-textarea"
+                            required></textarea>
+                        <label for="book_description">Book Description</label>
                     </div>
                 </div>
                 <!-- Add button -->

@@ -109,8 +109,10 @@ def add_book():
             "genre": request.form.get("genre_name"),
             "author": request.form.get("author_name"),
             "characters": request.form.getlist("characters_list"),
+            "description": request.form.get("book_description"),
             "created_by": session['user']
         }
+        
         mongo.db.books.insert_one(book)
         flash("Book Successfully Added")
         return redirect(url_for("get_books"))
@@ -127,6 +129,7 @@ def edit_book(book_id):
             "genre": request.form.get("genre_name"),
             "author": request.form.get("author_name"),
             "characters": request.form.getlist("characters_list"),
+            "description": request.form.get("book_description"),
             "created_by": session['user']
         }
         mongo.db.books.update({"_id": ObjectId(book_id)}, submitb)
@@ -154,7 +157,7 @@ def add_chapter():
             "outline": request.form.get("outline_name"),
             "author": request.form.get("author_name"),
             "sequence": request.form.get("sequence_name"),
-            "book_name": request.form.get("book.book_name"),
+            "book_name": request.form.get("book_name"),
             "author": session['user']
         }
 
@@ -175,7 +178,7 @@ def edit_chapter(chapter_id):
             "outline": request.form.get("outline_name"),
             "author": request.form.get("author_name"),
             "sequence": request.form.get("sequence_name"),
-            "book_name": request.form.get("book.book_name"),
+            "book_name": request.form.get("book_name"),
             "author": session['user']
         }
 
