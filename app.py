@@ -41,7 +41,9 @@ def get_books():
 @app.route("/get_chapters")
 @login_required
 def get_chapters():
-    chapters = list(mongo.db.chapters.find())
+    # SORT CHAPTERS BY A-Z SEQUENCE
+    # https://www.tutorialspoint.com/mongodb/mongodb_sort_record.htm?fbclid=IwAR0UYkyl4zG_r4a7phaatoSmqkGZSZi41frbj3cbozDqOJp4APY1YKSc7WY
+    chapters = list(mongo.db.chapters.find().sort("sequence",1))
     return render_template("chapters.html", chapters=chapters)
 
 
@@ -110,10 +112,17 @@ def logout():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 @login_required
 def profile(username):
-    # Retrieve user's username from database
-    username = mongo.db.users.find_one(
-        {"username": session['user']})["username"]
-    return render_template("profile.html", username=username)
+    if session['user'] == username:
+        # Retrieve user's username from database
+        username = mongo.db.users.find_one(
+            {"username": session['user']})["username"]
+        # Show count of own books and chapters to user
+        booknum = mongo.db.books.count({'user': username}),
+        chapnum = mongo.db.chapters.count({'user': username})
+
+        return render_template(
+            "profile.html", username=username,
+            booknum=booknum, chapnum=chapnum)
 
 
 @app.route("/add_book", methods=["GET", "POST"])
