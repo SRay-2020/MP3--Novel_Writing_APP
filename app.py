@@ -128,10 +128,11 @@ def profile(username):
         # Show count of own books and chapters to user
         booknum = mongo.db.books.count({'user': username}),
         chapnum = mongo.db.chapters.count({'user': username})
+        notes = list(mongo.db.notes.find().distinct("note_text"))
 
         return render_template(
             "profile.html", username=username,
-            booknum=booknum, chapnum=chapnum)
+            booknum=booknum, chapnum=chapnum, notes=notes)
 
 
 @app.route("/add_book", methods=["GET", "POST"])
@@ -250,7 +251,12 @@ def delete_chapter(chapter_id):
 @login_required
 def add_note():
     if request.method == "POST":
-        mongo.db.notes.insert_one(request.form.to_dict())
+        note = {
+            "note_text": request.form.get("note_text"),
+            "author": session['user']
+        }
+
+        mongo.db.notes.insert_one(note)
 
         flash("Note Successfully Added")
         return redirect(url_for("get_notes"))

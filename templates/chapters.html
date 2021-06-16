@@ -7,7 +7,7 @@
         </div>
         <div class=" col s4">
             <div class="book-create-btn plus-button">
-            <a class="waves-effect waves-light btn-large" href="{{ url_for('add_chapter') }}" ><i class="fas fa-plus left"></i>Add New Chapter</a>
+            <a class=" blue-grey lighten-2 waves-effect waves-light btn-large" href="{{ url_for('add_chapter') }}" ><i class="fas fa-plus left"></i>Add New Chapter</a>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
     <ul class="collapsible chapter-collapsible">
         {% for chapter in chapters %}
         <li>
-            <div class="collapsible-header white-text teal darken-2 text-shadow">
+            <div class="collapsible-header white-text blue-grey darken-3 text-shadow">
                 <div class="col s3">
                     <i class="fas fa-caret-down"></i>
                     
@@ -31,8 +31,8 @@
                 <p class="outline-text">{{ chapter.outline }}</p>
                 <p class="author-text"><em>Created by:{{ chapter.author }}</em></p>
                 {% if session.user|lower == chapter.author|lower %}
-                    <a href="{{ url_for('edit_chapter', chapter_id=chapter._id) }}" class="waves-effect waves-light  amber btn-small">Edit</a>
-                    <a href="{{ url_for('delete_chapter', chapter_id=chapter._id) }}" class="waves-effect waves-light red btn-small"
+                    <a href="{{ url_for('edit_chapter', chapter_id=chapter._id) }}" class="waves-effect waves-light  indigo accent-2 btn-small">Edit</a>
+                    <a href="{{ url_for('delete_chapter', chapter_id=chapter._id) }}" class="waves-effect waves-light red lighten-1 btn-small"
                      onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                 {% endif %}
             </div>

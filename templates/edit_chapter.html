@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="teal center-align">Edit Chapters</h3>
+    <h3 class="blue-grey center-align">Edit Chapter</h3>
     <!-- ICON INPUT -->
     <div class="main-page create-book-background">
 
@@ -10,7 +10,7 @@
                 <!-- TITLE -->
                 <div class="row">
                     <div class="input-field col m8 offset-2">
-                        <i class="fas fa-book-open prefix red-text"></i>
+                         <i class="fas fa-book-open prefix blue-grey-text text-lighten-3"></i>
                         <input id="chapter_name" name="chapter_name" minlength="5" maxlength="40"
                             value="{{ chapter.chapter_name }}" type="text" class="validate" required>
                         <label for="chapter_name">Chapter Title</label>
@@ -19,7 +19,7 @@
                 <!-- SEQUENCE -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-list-ol prefix indigo-text"></i>
+                        <i class="fas fa-list-ol prefix blue-grey-text text-lighten-2"></i>
                         <input id="sequence_name" name="sequence_name" minlength="5" maxlength="40"
                             value="{{ chapter.sequence }}" type="text" class="validate" required>
                         <label for="sequence_name">Sequence - example: Chapter 1</label>
@@ -28,7 +28,7 @@
                 <!-- OUTLINE -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-feather-alt prefix green-text"></i>
+                        <i class="fas fa-edit prefix blue-grey-text text-lighten-1"></i>
                         <textarea id="outline_name" name="outline_name" minlength="5" 
                             maxlength="400" class="validate materialize-textarea" required>
                             {{- chapter.outline -}} </textarea>
@@ -38,7 +38,7 @@
                <!-- Book Select - for Chapter Page -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-folder-open prefix amber-text"></i>
+                        <i class="fas fa-folder-open prefix blue-grey-text"></i>
                         <select id="book_name" name="book_name" class="validate" required>
                             <option value="" disabled selected></option>
                             {% for book in books %}
@@ -51,10 +51,10 @@
                 <!-- Add button -->
                 <div class="row">
                     <div class="col s12 center-align">
-                        <a href="{{ url_for('get_chapters') }}" class="btn-large waves-effect waves-light red" type="submit">
+                        <a href="{{ url_for('get_chapters') }}" class="btn-large waves-effect waves-light red lighten-1" type="submit">
                             Cancel <i class="fas fa-times-circle right"></i>
                         </a>
-                        <button class="btn-large waves-effect waves-light" type="submit" name="">Save
+                        <button class="btn-large waves-effect waves-light" type="submit" indigo accent-2>Save
                             <i class="fas fa-edit right"></i>
                         </button>
                     </div>

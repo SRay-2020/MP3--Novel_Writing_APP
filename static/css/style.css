@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@300;400;500;600;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
 body {
-    background-color: rgb(137, 143, 163);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   background-color: #c5cae9; 
+    font-family: 'Sora', sans-serif;
     min-height: 100vh;
     width: 100%;
     overflow: scroll;
@@ -16,7 +19,8 @@ body {
 /* FOOTER */
 
 footer {
-    background-color: #212121;
+    /* background-color: #5c6bc0; */
+    background-color: #37474f;
     color: #fff;
     width: 100%;
     bottom: 0;
@@ -49,6 +53,7 @@ footer {
 
 .profile-title {
     padding-top: 2rem;
+    color: #110e29
 }
 
 /* MAIN BODY */
@@ -82,6 +87,11 @@ footer {
 nav {
     position: fixed;
     top: 0px;
+}
+
+.navbar-style {
+    /* background-color: #9FA8DA; */
+     background-color: #37474f;
 }
 
 .nav-bar-location {
@@ -120,25 +130,38 @@ nav {
 
 
 .create-book-background {
-    background-color: #fff;
+    background-color: #EEF0F2;
 }
 
 .book-create-btn {
     padding-top: 3rem;
     margin-left: 2rem;
-   
 }
 
 .title-row {
-    
-    display: flex; 
+
+    display: flex;
     align-items: center;
 }
 
 .book-title {
-   text-align: center;
-} 
+    text-align: center;
+}
 
+.book-button {
+    align-content: center;
+    bottom: 0;
+    position: absolute;
+    padding-bottom: 5px;
+    padding-left: 3px;
+}
+
+.card-user{
+    bottom: 0;
+    position: absolute;
+    padding-bottom: 40px;
+    padding-left: 3px;
+}
 /* CHAPTERS PAGE */
 
 .chapter-info {
@@ -147,7 +170,7 @@ nav {
 }
 
 .collapsible-body {
-    background-color: #eeecec;
+    background-color: #EEF0F2;
 }
 
 .chapter-collapsible {
@@ -176,12 +199,14 @@ nav {
 
 /* SIDE BAR */
 .sidebar {
+
     position: fixed;
+    font-size: 1.5rem;
     top: 0;
     left: 0;
     height: 100%;
     width: 100px;
-    background: #11101d;
+    background: #0a0a0e;
     padding: 6px 14px;
     transition: all 0.5s ease;
     z-index: 3;
@@ -192,7 +217,7 @@ nav {
 }
 
 .sidebar .logo-content .logo {
-    color: #fff;
+    color: #EEF0F2;
     display: flex;
     height: 50px;
     width: 100%;
@@ -213,15 +238,16 @@ nav {
     margin-right: 5px;
 }
 
-.logo-content .logo .logo_name {
 
-    font-size: 20px;
+.logo-content .logo .logo_name {
+    font-size: 28px;
     font-weight: 500;
+    font-family: 'Grenze Gotisch', cursive;
 }
 
 .sidebar #btn {
     position: absolute;
-    color: #fff;
+    color: #EEF0F2;
     left: 22%;
     top: 3%;
     font-size: 32px;
@@ -280,7 +306,7 @@ nav {
 }
 
 .sidebar ul li a {
-    color: #fff;
+    color: #EEF0F2;
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -291,7 +317,7 @@ nav {
 
 .sidebar ul li a:hover {
     color: #11101d;
-    background: #fff;
+    background: #EEF0F2;
 }
 
 .sidebar ul li a i {
@@ -329,7 +355,7 @@ nav {
 }
 
 .modal-content {
-    text-decoration: none!important;
+    text-decoration: none !important;
 }
 
 /* REGISTER PAGE */
@@ -365,7 +391,7 @@ nav {
     height: 450px;
     perspective: 1000px;
     border-radius: 5%;
-    background-color: rgb(137, 143, 163);
+    background-color: #c5cae9;
     /* border: 3px solid rgb(75, 53, 43); */
     box-shadow: none;
 }
@@ -439,10 +465,9 @@ nav {
 }
 
 .card__header h2 {
-    color: rgb(37, 37, 37);
-    font-size: 1rem;
+    color: #221c63;
+    font-size: 2rem;
     font-weight: 600;
-    text-transform: uppercase;
     text-align: center;
 }
 
@@ -459,8 +484,8 @@ nav {
 
 .card__body p {
     color: rgb(0, 11, 46);
-    font-size: 10px;
-    line-height: 1.5;
+    font-size: 13px;
+    line-height: 1.2;
 }
 
 /* STORY NOTES PAGE */
@@ -483,8 +508,9 @@ nav {
     .sidebar {
         height: auto;
         position: relative;
-        width: 150px;
-        background-color: rgba(119, 119, 119, 0.616);
+        width: 74px;
+        height: 1000px;
+        background-color: rgb(27, 71, 33);
     }
 
     .sidebar a {
