@@ -104,6 +104,14 @@ def profile(username):
 @app.route("/add_book", methods=["GET", "POST"])
 def add_book():
     if request.method == "POST":
+# Check if username already exists
+        existing_book = mongo.db.books.find_one(
+                {"book_name": request.form.get("book_name")})
+
+        if existing_book:
+            flash("Name already in use, please enter unique book name")
+            return redirect(url_for("add_book"))
+
         book = {
             "book_name": request.form.get("book_name"),
             "genre": request.form.get("genre_name"),
@@ -112,16 +120,8 @@ def add_book():
             "description": request.form.get("book_description"),
             "created_by": session['user']
         }
-        # Check if name in use
-        existing_books = mongo.db.books.find_one(
-                {"book_name": request.form.get("book_name").lower()})
-
-        if existing_books:
-            flash("Name already in use, please enter unique book name")
-            return redirect(url_for(add_book))
-            # Check if username already exists
-
         mongo.db.books.insert_one(book)
+
         flash("Book Successfully Added")
         return redirect(url_for("get_books"))
 
