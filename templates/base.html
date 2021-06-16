@@ -1,141 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
-    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
     <title>Book Manager</title>
 </head>
+
 <body>
 
     <header>
         <!-- Top Navbar -->
-            <nav class="nav-bar-location nav-extended text-shadow indigo lighten-3 navbar-fixed-top">
-                <div class="nav-wrapper">
-                    <!-- <a href="#!" class="brand-logo"><p>The novel writing app </p></a> -->
-                
-                    <ul class="right">
-                        <li><a href="{{ url_for('get_books') }}">Home</a></li>
-                        {% if session.user %}
+        <nav class="nav-bar-location nav-extended text-shadow indigo lighten-3 navbar-fixed-top">
+            <div class="nav-wrapper">
+                <!-- <a href="#!" class="brand-logo"><p>The novel writing app </p></a> -->
 
-                        <li>
-                            <a href="">
-                                <input type="text" placeholder="Search...">
-                                <!-- <i class="fas fa-search"></i> -->
-                            </a>
-                        </li>
+                <ul class="right">
+                    <li><a href="{{ url_for('get_books') }}">Home</a></li>
+                    {% if session.user %}
 
-                            <li><a href="{{ url_for('logout') }}">Logout</a></li>
-                        {% else %}
-                            <li><a href="{{ url_for('login') }}">Login</a></li>     
-                            <li><a href="{{ url_for('register') }}">Register</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </nav>
-    </header>
-<!-- SIDE BAR -->
-<div class="sidebar active">  
-    <div class="logo-content">
-        <div class="logo">
-            <i class="fas fa-scroll"></i>
-            <div class="logo_name">Scriptorium</div>
+                    <li><a href="{{ url_for('get_notes') }}">Note Editor</a></li>
+                    <li>
+                        <a href="">
+                            <input type="text" placeholder="Search...">
+                            <!-- <i class="fas fa-search"></i> -->
+                        </a>
+                    </li>
+
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    {% endif %}
+                </ul>
             </div>
-            <i class="fas fa-bars" id="btn" ></i>
+        </nav>
+    </header>
+    <!-- SIDE BAR -->
+    <div class="sidebar active">
+        <div class="logo-content">
+            <div class="logo">
+                <i class="fas fa-scroll"></i>
+                <div class="logo_name">Scriptorium</div>
+            </div>
+            <i class="fas fa-bars" id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="{{ url_for('get_books') }}">
+                    <i class="fas fa-book"></i>
+                    <span class="links_name" href="{{ url_for('get_books') }}">Books</span>
+                </a>
+                <span class="tooltip">Books</span>
+            </li>
+            <li>
+                <a href="{{ url_for('get_chapters') }}">
+                    <i class="fas fa-bookmark"></i>
+                    <span class="links_name" href="{{ url_for('get_chapters') }}">Chapters</span>
+                </a>
+                <span class="tooltip">Chapters</span>
+            </li>
+
+            <li>
+                <button data-target="modal1" class="modal-trigger">
+                    <a href="">
+                        <i class="far fa-sticky-note"></i>
+                        <span class="links_name">Notepad</span>
+                    </a>
+                    <span class="tooltip">Notes</span>
+                </button>
+            </li>
+            <li>
+                <a href="{{ url_for('profile', username=session['user']) }}">
+                    <i class="fas fa-user-circle"></i>
+                    <span class="links_name" href="{{ url_for('profile', username=session['user']) }}">Profile</span>
+                </a>
+                <span class="tooltip">Profile</span>
+            </li>
+        </ul>
     </div>
-    <ul class="nav-list">
-        <li>
-            <a href="{{ url_for('get_books') }}">
-                <i class="fas fa-book"></i>
-                <span class="links_name" href="{{ url_for('get_books') }}">Books</span>
-            </a>
-            <span class="tooltip">Books</span> 
-        </li>
-         <li>
-            <a href="{{ url_for('get_chapters') }}">
-                <i class="fas fa-bookmark"></i>
-                <span class="links_name" href="{{ url_for('get_chapters') }}">Chapters</span>
-            </a>
-            <span class="tooltip">Chapters</span> 
-        </li>
-        
-         <li>
-          <button data-target="modal1" class="modal-trigger">
-                <a href=""> 
-                <i class="far fa-sticky-note"></i>
-                <span class="links_name">Story Notes</span>
-            </a>
-             <span class="tooltip">Notes</span>
-             </button>
-        </li>
-         <li>
-            <a href="{{ url_for('profile', username=session['user']) }}">
-                <i class="fas fa-user-circle"></i>
-                <span class="links_name"  href="{{ url_for('profile', username=session['user']) }}">Profile</span>
-            </a>
-            <span class="tooltip">Profile</span> 
-        </li>
-    </ul>
-</div>
 
     <section>
         <!-- Flash Message -->
         {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
-                    </div>
-                {% endfor %}
-            {% endif %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+        </div>
+        {% endfor %}
+        {% endif %}
         {% endwith %}
     </section>
     <main class="container">
-    
-    {% block content %}
-    {% endblock %}
+
+        {% block content %}
+        {% endblock %}
     </main>
 
     <footer class="border-top">
-                <div class="justify-content-center">
-                      <p class="text-align">Copyright &copy; Stephen Website <span id="copyright"></span></p>
-                </div>
-            </div>
+        <div class="justify-content-center">
+            <p class="text-align">Copyright &copy; Stephen Website <span id="copyright"></span></p>
+        </div>
+        </div>
     </footer>
-<!-- NOTE PAD MODAL -->
+    <!-- NOTE PAD MODAL
+    <div id="modal1" class="modal bottom-sheet">
+        <div class="row modal-content">
+            <form class="col s12" method="GET" action="{{ url_for('edit_notes') }}">
+                <div class="row notepad-title">
+                    <h4>Notepad</h4>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="notepad" name="notepad" maxlength="1500"
+                            type="text" class="materialize-textarea">
+                            {{- notes -}}</textarea>
+                        <label for="notepad">Textarea</label>
+                    </div>
+                </div>
+            </form>
+        </div> -->
+              <!-- <button class="btn-large waves-effect waves-light modal-footer" type="text" name="">Accept
+            <i class="fas fa-edit right modal-close"></i>
+        </button>
+    </div> -->
+
+
+
+
+
+
     <div id="modal1" class="modal bottom-sheet">
     <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+      <h4>Quick Notes</h4>
+      <p>Your Notes:  {{- notes -}}</p>
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
   </div>
-    
 
-    <script>
-        let btn = document.querySelector("#btn");
-        let sidebar = document.querySelector(".sidebar");
-        let Searchbtn = document.querySelector(".bx-search");
+   
 
-        btn.onclick = function() {
-            sidebar.classList.toggle("active");
-        }
 
-        // Searchbtn.onclick = function() {
-        //     sidebar.classList.toggle("active");
-        // }
-    </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    {% block scripts %}
-    {% endblock %}
+        <script>
+            let btn = document.querySelector("#btn");
+            let sidebar = document.querySelector(".sidebar");
+            let Searchbtn = document.querySelector(".bx-search");
+
+            btn.onclick = function () {
+                sidebar.classList.toggle("active");
+            }
+
+            // Searchbtn.onclick = function() {
+            //     sidebar.classList.toggle("active");
+            // }
+        </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+        {% block scripts %}
+        {% endblock %}
 </body>
+
 </html>
