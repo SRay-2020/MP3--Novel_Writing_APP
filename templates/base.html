@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,27 +13,21 @@
     {% endblock %}
     <title>Book Manager</title>
 </head>
-
 <body>
-
     <header>
-        <!-- Top Navbar -->
+        <!-- NAVBAR -->
         <nav class="nav-bar-location nav-extended text-shadow indigo lighten-3 navbar-fixed-top">
             <div class="nav-wrapper">
-                <!-- <a href="#!" class="brand-logo"><p>The novel writing app </p></a> -->
-
                 <ul class="right">
                     <li><a href="{{ url_for('get_books') }}">Home</a></li>
                     {% if session.user %}
-
                     <li><a href="{{ url_for('get_notes') }}">Note Editor</a></li>
                     <li>
                         <a href="">
-                            <input type="text" placeholder="Search...">
                             <!-- <i class="fas fa-search"></i> -->
+                            <input type="text" placeholder="Search...">
                         </a>
                     </li>
-
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
                     {% else %}
                     <li><a href="{{ url_for('login') }}">Login</a></li>
@@ -68,15 +61,13 @@
                 </a>
                 <span class="tooltip">Chapters</span>
             </li>
-
             <li>
                 <a class="waves-effect waves-light btn modal-trigger" href="#modal1">
-                        <i class="far fa-sticky-note"></i>
-                        <span class="links_name">Notepad</span>
+                    <i class="far fa-sticky-note"></i>
+                    <span class="links_name">Notepad</span>
                 </a>
                 <span class="tooltip">Notes</span>
             </li>
-
             <li>
                 <a href="{{ url_for('profile', username=session['user']) }}">
                     <i class="fas fa-user-circle"></i>
@@ -86,9 +77,8 @@
             </li>
         </ul>
     </div>
-
+<!-- FLASH MESSAGES -->
     <section>
-        <!-- Flash Message -->
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
@@ -99,11 +89,25 @@
         {% endif %}
         {% endwith %}
     </section>
+    <!-- MAIN CONTENT -->
     <main class="container">
-
         {% block content %}
         {% endblock %}
     </main>
+
+<!-- NOTEPAD POPOUT MODAL -->
+
+    <div id="modal1" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Quick Notes</h4>
+            <p>Your Notes: {{- notes -}}</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
+<!-- FOOTER -->
 
     <footer class="border-top">
         <div class="justify-content-center">
@@ -111,61 +115,24 @@
         </div>
         </div>
     </footer>
-    <!-- NOTE PAD MODAL
-    <div id="modal1" class="modal bottom-sheet">
-        <div class="row modal-content">
-            <form class="col s12" method="GET" action="{{ url_for('edit_notes') }}">
-                <div class="row notepad-title">
-                    <h4>Notepad</h4>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="notepad" name="notepad" maxlength="1500"
-                            type="text" class="materialize-textarea">
-                            {{- notes -}}</textarea>
-                        <label for="notepad">Textarea</label>
-                    </div>
-                </div>
-            </form>
-        </div> -->
-              <!-- <button class="btn-large waves-effect waves-light modal-footer" type="text" name="">Accept
-            <i class="fas fa-edit right modal-close"></i>
-        </button>
-    </div> -->
+    
+<!-- BODY SCRIPTS  -->
 
+    <script>
+        let btn = document.querySelector("#btn");
+        let sidebar = document.querySelector(".sidebar");
+        let Searchbtn = document.querySelector(".bx-search");
 
-    <div id="modal1" class="modal bottom-sheet">
-    <div class="modal-content">
-      <h4>Quick Notes</h4>
-      <p>Your Notes:  {{- notes -}}</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
-
-   
-
-
-        <script>
-            let btn = document.querySelector("#btn");
-            let sidebar = document.querySelector(".sidebar");
-            let Searchbtn = document.querySelector(".bx-search");
-
-            btn.onclick = function () {
-                sidebar.classList.toggle("active");
-            }
-
-            // Searchbtn.onclick = function() {
-            //     sidebar.classList.toggle("active");
-            // }
-        </script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-        {% block scripts %}
-        {% endblock %}
+        btn.onclick = function () {
+            sidebar.classList.toggle("active");
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% block scripts %}
+    {% endblock %}
 </body>
 
 </html>

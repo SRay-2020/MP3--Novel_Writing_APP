@@ -157,8 +157,8 @@ def add_book():
         flash("Book Successfully Added")
         return redirect(url_for("get_books"))
 
-    characters = mongo.db.characters.find().sort("character_name", 1)
-    return render_template("add_book.html", characters=characters)
+    notes = mongo.db.notes.find().sort("note_text", 1)
+    return render_template("add_book.html", notes=notes)
 
 
 @app.route("/edit_book/<book_id>", methods=["GET", "POST"])
@@ -178,9 +178,9 @@ def edit_book(book_id):
         flash("Book Successfully Edited")
 
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    characters = mongo.db.characters.find().sort("character_name", 1)
+    notes = mongo.db.notes.find().sort("note_text", 1)
     return render_template(
-        "edit_book.html", book=book, characters=characters)
+        "edit_book.html", book=book, notes=notes)
 
 
 @app.route("/delete_book/<book_id>")
@@ -208,7 +208,8 @@ def add_chapter():
         return redirect(url_for("get_chapters"))
 
     books = mongo.db.books.find().sort("book_name", 1)
-    return render_template("add_chapter.html", books=books)
+    notes = mongo.db.notes.find().sort("note_text", 1)
+    return render_template("add_chapter.html", books=books, notes=notes)
 
 
 @app.route("/edit_chapter/<chapter_id>", methods=["GET", "POST"])
@@ -229,9 +230,11 @@ def edit_chapter(chapter_id):
 
     books = mongo.db.books.find().sort("book_name", 1)
     chapter = mongo.db.chapters.find_one({"_id": ObjectId(chapter_id)})
+    notes = mongo.db.notes.find().sort("note_text", 1)
     # characters = mongo.db.characters.find().sort("character_name", 1)
     return render_template(
-        "edit_chapter.html", chapter=chapter, books=books)
+        "edit_chapter.html", chapter=chapter, books=books,
+        notes=notes)
 
 
 @app.route("/delete_chapter/<chapter_id>")
@@ -242,21 +245,21 @@ def delete_chapter(chapter_id):
     return redirect(url_for("get_chapters"))
 
 
-# @app.route("/add_note", methods=["GET", "POST"])
-# @login_required
-# def add_note():
-#     if request.method == "POST":
-#         note = {
-#             "note_text": request.form.get("notepad"),
-#             "author": session['user']
-#         }
+@app.route("/add_note", methods=["GET", "POST"])
+@login_required
+def add_note():
+    if request.method == "POST":
+        note = {
+            "note_text": request.form.get("notepad"),
+            "author": session['user']
+        }
 
-#         mongo.db.notes.insert_one(note)
-#         flash("Note Successfully Added")
-#         return redirect(url_for("get_notes"))
+        mongo.db.notes.insert_one(note)
+        flash("Note Successfully Added")
+        return redirect(url_for("get_notes"))
 
-#     notes = mongo.db.notes.find({'note_text':})
-#     return render_template("notepad.html", notes=notes)
+    notes = mongo.db.notes.find().sort("note_text", 1)
+    return render_template("notepad.html", notes=notes)
 
 
 @app.route("/edit_notes/", methods=["GET", "POST"])
