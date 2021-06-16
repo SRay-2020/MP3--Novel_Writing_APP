@@ -1,4 +1,5 @@
 import os
+from functools import wraps
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -19,6 +20,17 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+def login_required(f):
+    @wraps(f)
+    # USER MUST BE LOGGED IN
+    def decorated_function(*args, **kwargs):
+        if "user" not in session:
+            flash("Please Login to view page")
+            return redirect(url_for('login'))
+        return f(*args, **kwargs)
+    return decorated_function
+
+
 @app.route("/")
 @app.route("/get_books")
 def get_books():
@@ -27,6 +39,7 @@ def get_books():
 
 
 @app.route("/get_chapters")
+@login_required
 def get_chapters():
     chapters = list(mongo.db.chapters.find())
     return render_template("chapters.html", chapters=chapters)
@@ -86,6 +99,7 @@ def login():
 
 
 @app.route("/logout")
+@login_required
 def logout():
     # Remove user from session Cookie
     flash("You have been successfully logged out")
@@ -94,6 +108,7 @@ def logout():
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
+@login_required
 def profile(username):
     # Retrieve user's username from database
     username = mongo.db.users.find_one(
@@ -102,6 +117,7 @@ def profile(username):
 
 
 @app.route("/add_book", methods=["GET", "POST"])
+@login_required
 def add_book():
     if request.method == "POST":
 # Check if username already exists
@@ -130,6 +146,7 @@ def add_book():
 
 
 @app.route("/edit_book/<book_id>", methods=["GET", "POST"])
+@login_required
 def edit_book(book_id):
 
     if request.method == "POST":
@@ -151,6 +168,7 @@ def edit_book(book_id):
 
 
 @app.route("/delete_book/<book_id>")
+@login_required
 def delete_book(book_id):
     mongo.db.books.remove({"_id": ObjectId(book_id)})
     flash("Book Successfully Deleted")
@@ -158,6 +176,7 @@ def delete_book(book_id):
 
 
 @app.route("/add_chapter", methods=["GET", "POST"])
+@login_required
 def add_chapter():
     if request.method == "POST":
         chapter = {
@@ -177,6 +196,7 @@ def add_chapter():
 
 
 @app.route("/edit_chapter/<chapter_id>", methods=["GET", "POST"])
+@login_required
 def edit_chapter(chapter_id):
 
     if request.method == "POST":
@@ -199,6 +219,7 @@ def edit_chapter(chapter_id):
 
 
 @app.route("/delete_chapter/<chapter_id>")
+@login_required
 def delete_chapter(chapter_id):
     mongo.db.chapters.remove({"_id": ObjectId(chapter_id)})
     flash("Chapter Successfully Deleted")
