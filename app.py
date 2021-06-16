@@ -36,7 +36,8 @@ def login_required(f):
 @app.route("/get_books")
 def get_books():
     books = list(mongo.db.books.find())
-    return render_template("books.html", books=books)
+    notes = list(mongo.db.notes.find().distinct("note_text"))
+    return render_template("books.html", books=books, notes=notes)
 
 
 @app.route("/get_chapters")
@@ -45,7 +46,8 @@ def get_chapters():
     # SORT CHAPTERS BY A-Z SEQUENCE
     # https://www.tutorialspoint.com/mongodb/mongodb_sort_record.htm?fbclid=IwAR0UYkyl4zG_r4a7phaatoSmqkGZSZi41frbj3cbozDqOJp4APY1YKSc7WY
     chapters = list(mongo.db.chapters.find().sort("sequence", 1))
-    return render_template("chapters.html", chapters=chapters)
+    notes = list(mongo.db.notes.find().distinct("note_text"))
+    return render_template("chapters.html", chapters=chapters, notes=notes)
 
 
 @app.route("/get_notes")
@@ -157,7 +159,7 @@ def add_book():
         flash("Book Successfully Added")
         return redirect(url_for("get_books"))
 
-    notes = mongo.db.notes.find().sort("note_text", 1)
+    notes = list(mongo.db.notes.find().distinct("note_text"))
     return render_template("add_book.html", notes=notes)
 
 
@@ -177,8 +179,8 @@ def edit_book(book_id):
         mongo.db.books.update({"_id": ObjectId(book_id)}, submitb)
         flash("Book Successfully Edited")
 
+    notes = list(mongo.db.notes.find().distinct("note_text"))
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    notes = mongo.db.notes.find().sort("note_text", 1)
     return render_template(
         "edit_book.html", book=book, notes=notes)
 
@@ -208,7 +210,7 @@ def add_chapter():
         return redirect(url_for("get_chapters"))
 
     books = mongo.db.books.find().sort("book_name", 1)
-    notes = mongo.db.notes.find().sort("note_text", 1)
+    notes = list(mongo.db.notes.find().distinct("note_text"))
     return render_template("add_chapter.html", books=books, notes=notes)
 
 
@@ -230,8 +232,7 @@ def edit_chapter(chapter_id):
 
     books = mongo.db.books.find().sort("book_name", 1)
     chapter = mongo.db.chapters.find_one({"_id": ObjectId(chapter_id)})
-    notes = mongo.db.notes.find().sort("note_text", 1)
-    # characters = mongo.db.characters.find().sort("character_name", 1)
+    notes = list(mongo.db.notes.find().distinct("note_text"))
     return render_template(
         "edit_chapter.html", chapter=chapter, books=books,
         notes=notes)
@@ -254,7 +255,7 @@ def add_note():
         flash("Note Successfully Added")
         return redirect(url_for("get_notes"))
 
-    notes = mongo.db.notes.find().sort("note_text", 1)
+    notes = list(mongo.db.notes.find().distinct("note_text"))
     return render_template("notepad.html", notes=notes)
 
 
