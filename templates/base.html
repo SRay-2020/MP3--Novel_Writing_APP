@@ -65,11 +65,13 @@
         </li>
         
          <li>
-            <a href="">
+          <button data-target="modal1" class="modal-trigger">
+                <a href=""> 
                 <i class="far fa-sticky-note"></i>
                 <span class="links_name">Story Notes</span>
             </a>
-             <span class="tooltip">Notes</span> 
+             <span class="tooltip">Notes</span>
+             </button>
         </li>
          <li>
             <a href="{{ url_for('profile', username=session['user']) }}">
@@ -105,6 +107,16 @@
                 </div>
             </div>
     </footer>
+<!-- NOTE PAD MODAL -->
+    <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
     
 
     <script>

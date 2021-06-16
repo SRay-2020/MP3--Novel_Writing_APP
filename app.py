@@ -22,6 +22,7 @@ mongo = PyMongo(app)
 
 def login_required(f):
     @wraps(f)
+    # https://flask.palletsprojects.com/en/2.0.x/patterns/viewdecorators/#login-required-decorator
     # USER MUST BE LOGGED IN
     def decorated_function(*args, **kwargs):
         if "user" not in session:
