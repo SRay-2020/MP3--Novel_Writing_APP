@@ -44,8 +44,9 @@ def get_books():
 def get_chapters():
     # SORT CHAPTERS BY A-Z SEQUENCE
     # https://www.tutorialspoint.com/mongodb/mongodb_sort_record.htm?fbclid=IwAR0UYkyl4zG_r4a7phaatoSmqkGZSZi41frbj3cbozDqOJp4APY1YKSc7WY
-    chapters = list(mongo.db.chapters.find().sort("sequence",1))
+    chapters = list(mongo.db.chapters.find().sort("sequence", 1))
     return render_template("chapters.html", chapters=chapters)
+
 
 @app.route("/get_notes")
 def get_notes():
@@ -135,7 +136,7 @@ def profile(username):
 @login_required
 def add_book():
     if request.method == "POST":
-# Check if username already exists
+        # Check if username already exists
         existing_book = mongo.db.books.find_one(
                 {"book_name": request.form.get("book_name")})
 
@@ -241,21 +242,21 @@ def delete_chapter(chapter_id):
     return redirect(url_for("get_chapters"))
 
 
-@app.route("/add_note", methods=["GET", "POST"])
-@login_required
-def add_note():
-    if request.method == "POST":
-        note = {
-            "note_text": request.form.get("notepad"),
-            "author": session['user']
-        }
+# @app.route("/add_note", methods=["GET", "POST"])
+# @login_required
+# def add_note():
+#     if request.method == "POST":
+#         note = {
+#             "note_text": request.form.get("notepad"),
+#             "author": session['user']
+#         }
 
-        mongo.db.notes.insert_one(note)
-        flash("Note Successfully Added")
-        return redirect(url_for("get_notes"))
+#         mongo.db.notes.insert_one(note)
+#         flash("Note Successfully Added")
+#         return redirect(url_for("get_notes"))
 
-    notes = mongo.db.notes.find({'note_text': username})
-    return render_template("notepad.html", notes=notes)
+#     notes = mongo.db.notes.find({'note_text':})
+#     return render_template("notepad.html", notes=notes)
 
 
 @app.route("/edit_notes/", methods=["GET", "POST"])

@@ -279,7 +279,6 @@ nav {
     top: 50%;
 }
 
-
 .sidebar ul li a {
     color: #fff;
     display: flex;
@@ -323,6 +322,21 @@ nav {
     width: calc(100% - 240px);
     left: 240px;
 }
+
+
+.notes-button {
+    background-color: #11101d;
+}
+
+.modal-content {
+    text-decoration: none!important;
+}
+
+
+
+
+
+
 
 /* REGISTER PAGE */
 
