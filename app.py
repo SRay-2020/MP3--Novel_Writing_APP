@@ -50,7 +50,7 @@ def get_chapters():
 
 @app.route("/get_notes")
 def get_notes():
-    notes = list(mongo.db.notes.find())
+    notes = list(mongo.db.notes.find().distinct("note_text"))
     return render_template("notepad.html", notes=notes)
 
 
@@ -249,78 +249,13 @@ def delete_chapter(chapter_id):
 @login_required
 def add_note():
     if request.method == "POST":
-        note = {
-            "note_text": request.form.get("notepad"),
-            "author": session['user']
-        }
+        mongo.db.notes.insert_one(request.form.to_dict())
 
-        mongo.db.notes.insert_one(note)
         flash("Note Successfully Added")
         return redirect(url_for("get_notes"))
 
     notes = mongo.db.notes.find().sort("note_text", 1)
     return render_template("notepad.html", notes=notes)
-
-
-@app.route("/edit_notes/", methods=["GET", "POST"])
-@login_required
-def edit_notes():
-
-    if request.method == "POST":
-        submitc = {
-            "note_text": request.form.get("notepad"),
-            "author": session['user']
-        }
-
-        mongo.db.notes.update({"_id": ObjectId()}, submitc)
-        flash("Notepad Successfully Edited")
-
-    return render_template(
-        "edit_notepad.html")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# @app.route("/edit_notes/", methods=["GET", "POST"])
-# @login_required
-# def edit_notes():
-
-#     if request.method == "POST":
-#         note = {
-#             "note_text": request.form.get("notepad"),
-#             "author": session['user']
-#         }
-
-#         mongo.db.notes.insert_one(note)
-
-#     # books = mongo.db.books.find().sort("book_name", 1)
-#     # chapter = mongo.db.chapters.find_one({"_id": ObjectId(chapter_id)})
-#     # # characters = mongo.db.characters.find().sort("character_name", 1)
-#     return redirect(url_for("get_books"))
 
 
 if __name__ == "__main__":
