@@ -142,8 +142,8 @@ def profile(username):
         username = mongo.db.users.find_one(
             {"username": session['user']})["username"]
         # Show count of own books and chapters to user
-        booknum = mongo.db.books.count({'user': username})
-        chapnum = mongo.db.chapters.count({'user': username}),
+        booknum = mongo.db.books.count({"created_by": username})
+        chapnum = mongo.db.chapters.count({"author": username})
         # books = list(mongo.db.books.find().sort("book_name", 1)),
         books = list(mongo.db.books.find())
         chapters = list(mongo.db.chapters.find())
@@ -276,12 +276,13 @@ def add_note():
 
         mongo.db.notes.insert_one(note)
 
+        username = mongo.db.users.find_one(
+            {"username": session['user']})["username"]
         flash("Note Successfully Added")
         return redirect(url_for("get_notes"))
 
-    notes = list(mongo.db.notes.find_one(
-        {"author": session['user']}).distinct("note_text"))
-    return render_template("notepad.html", notes=notes)
+    notes = list(mongo.db.notes.find({"author": username}))
+    return render_template("notepad.html", notes=notes, username=username)
 
 
 if __name__ == "__main__":
