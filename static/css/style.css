@@ -405,6 +405,8 @@ nav {
     transform-style: preserve-3d;
     cursor: pointer;
     position: relative;
+    background-image: url();
+    background-image: url('img_girl.jpg')
 }
 
 .card__inner.is-flipped {
@@ -423,7 +425,7 @@ nav {
 }
 
 .card__face--front {
-    background-image: linear-gradient(#4e3820, #3d2917);
+    background-image: linear-gradient(#614932, #301d0e);
     display: flex;
     flex-wrap: wrap;
     text-align: center;
@@ -490,6 +492,24 @@ nav {
     line-height: 1.2;
 }
 
+.book-frame {
+width: 100%;
+height: 100%;
+transform: translate( 0px, 0px);
+}
+
+/* .book-outline {
+    position: relative;
+}
+.book-outline img {
+    position: absolute;
+}
+
+.book-outline h2 {
+     z-index: 100;
+    position: absolute;
+} */
+
 /* STORY NOTES PAGE */
 
 .notepad-title {
@@ -531,20 +551,40 @@ font-size: 1rem;
     flex-wrap: wrap;
 }
 
+/* Bigger Screen & Laptops */
+@media all and (max-width: 1400px) {
+    .book-page-container {
+    margin-left: 7rem;
+    transform: translate( 0rem, 0rem);  
+}  
 
 
 /* Bigger Screen & Laptops */
 @media all and (max-width: 1200px) {
+    .book-page-container {
+    margin-left: 5rem;
+    transform: translate( 0rem, 0rem);  
+}  
 
 }
 
 /* Bigger Screen & Laptops */
 @media all and (max-width: 980px) {
+    .book-page-container {
+    margin-left: 2rem;
+    transform: translate( 5rem, 0rem);
+}
 
 }
 
 /* Laptops */
-@media all and (max-width: 760px) {
+@media all and (max-width: 800px) {
+
+.book-page-container {
+    margin-left: 0rem;
+    transform: translate( 0rem, 0rem);  
+}  
+
     
 .sidebar {
     background-color: #11101d;
