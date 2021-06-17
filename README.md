@@ -6,14 +6,6 @@
 
 #### Purpose - To build a full stack site that allows users to manage a common dataset about a particular domain. 
 ---
-To initialise project -
-
-- pip3 install Flask
-- pip3 install PyMongo
-- pip3 install dnspython
-- pip3 install flask-pymongo
-
----
 
 ## Project Summary:
 ### The goal of this project will be to design and create a novel writing web based application using Python, JavaScript, HTML and CSS. The main goal for the user will be to create, read, update, delete files relating to their novels. The main goal of the site owner will be to have an application that assists their users in writing, and will have enough functionality that the users will spend time on the side and return. By using MONGODB this project will store and access user data and will quickly retrieve this data for viewing or modification.
@@ -115,7 +107,7 @@ Functional specifications:
 - Notepad modal display
 - Login/Logout features
 - Password protected user accounts
-- Search index function
+
 
 Content specifications:
 - Data retrieval display (from MONGO DB using Flask)
@@ -438,6 +430,13 @@ To create a clone of this project you can access it through the link on the Git 
 
 If you want to run this clone on a local machine you would go to the 'Clone' section on GitHub and click the url link in the HTTPS section. When you download and unzip these files to your desktop you can then open them in your own IDE shell and save them as a new directory. 
 
+Requirements needed to initialise project -
+
+- pip3 install Flask
+- pip3 install PyMongo
+- pip3 install dnspython
+- pip3 install flask-pymongo
+
 ### **CREDITS**
 
 #### **General Elements -** 
@@ -471,7 +470,10 @@ If you want to run this clone on a local machine you would go to the 'Clone' sec
 **Flask** 
 -Flask Documentation: (https://flask.palletsprojects.com/en/2.0.x/patterns/viewdecorators/#login-required-decorator)
 
-**Lighthouse Issues*
+**Image Overlay Issues**
+-Stack Overflow: (https://stackoverflow.com/questions/36927140/cant-click-the-button-because-of-the-overlay)
+
+**Lighthouse Issues**
 - Web.dev: (https://web.dev/image-aspect-ratio/?utm_source=lighthouse&utm_medium=devtools)
 
 **Media Queries**
