@@ -136,12 +136,15 @@ def profile(username):
             {"username": session['user']})["username"]
         # Show count of own books and chapters to user
         booknum = mongo.db.books.count({'user': username}),
-        chapnum = mongo.db.chapters.count({'user': username})
+        chapnum = mongo.db.chapters.count({'user': username}),
+        books = list(mongo.db.books.find().sort("book_name", 1)),
+        chapters = list(mongo.db.chapters.find().sort("chapter_name", 1)),
         notes = list(mongo.db.notes.find().distinct("note_text"))
 
         return render_template(
             "profile.html", username=username,
-            booknum=booknum, chapnum=chapnum, notes=notes)
+            booknum=booknum, chapnum=chapnum,
+            notes=notes, books=books, chapters=chapters)
 
 
 @app.route("/add_book", methods=["GET", "POST"])

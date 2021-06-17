@@ -11,22 +11,44 @@
         </div>
     </div>
     
-  <div class="row">
-    <div class="col s6 m5">
-      <div class="card-panel  blue-grey darken-1">
-        <h4>
-           Books by User: {{ booknum }}
-        </h4>
-      </div>
+    <div class="row">
+        <div class="col s6 m5">
+            <div class="card-panel  blue-grey darken-1">
+                <h4>
+                Books by User: {{ booknum }}
+                </h4>
+            </div>    
+        </div>
+        <div class="col s6 m5">
+            <div class="card-panel blue-grey darken-2">
+                <h4>
+                Chapters by User: {{ chapnum }}
+                </h4>
+            </div>
+        </div>  
     </div>
-    <div class="col s6 m5">
-      <div class="card-panel blue-grey darken-2">
-        <h4>
-           Chapters by User: {{ chapnum }}
-        </h4>
-      </div>
+    
+    <div class="row">
+        <!-- List User Books -->
+        {% for book in books %}
+            <div class="col s6 m5">
+                <div class="card-panel blue-grey lighten-1">
+                    <span class="white-text">{{ book.book_name }}
+                    </span>
+                </div>
+            </div>
+        {% endfor %}
+        <!-- List User Chapters -->
+        {% for chapter in chapters %}
+            <div class="col s6 m5">
+                <div class="card-panel blue-grey lighten-1">
+                    <span class="white-text">{{ chapter.chapter_name }}
+                    </span>
+                </div>
+            </div>
+        {% endfor %}
     </div>
   
-  </div>
+  
 
 {% endblock %}
