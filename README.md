@@ -23,7 +23,7 @@ To initialise project -
 
 ### **MOCKUPS**
 
-<img src="assets/images/#filehere#.png">
+<img src="static/img/mp3colourscheme.png">
 
 
 A digital render of how the site would look on different devices and screen sizes 
@@ -156,15 +156,15 @@ There was some difference between the final design and the wireframes. By adding
 Typography -
 Two fonts were chosen for this project - 
 
-The first of which is '_________ ’  - This font was chosen because it is reminiscent of the font a writer may be used to. 
+The first of which is 'Grenze & Gotisch'  - This font was chosen for it's old world gothic printing aesthetic,  it is reminiscent of the font a type setter would have used and git in perfectly with the desired affect.
 
-The second font used is ‘ ----------- ‘ – This font was chosen because ................
+The second font used is 'Sora' – This font was chosen because it's a simple non distracting font and one that a writer may be used to.
 
 Colour scheme -
 
 The author used Coolers.com to create a consistent and visually appealing colour palette for this project. Accessibility was also a concern so the author ensured that all colours of text used were done in a highly contrasting and visually pleasing manner .
 
-****** <img src="assets/images/coolorspalette1.REFERENCE HERE"> **********
+<img src="static/img/mp3colourscheme.png"> 
 
 Images -
 
