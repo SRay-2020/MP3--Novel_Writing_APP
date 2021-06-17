@@ -19,14 +19,13 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
 # app name
 @app.errorhandler(404)
-
 # inbuilt function which takes error as parameter
 def not_found(e):
-
-# defining function
-  return render_template("404.html")
+    # defining function
+    return render_template("404.html")
 
 
 def login_required(f):
@@ -47,6 +46,7 @@ def get_books():
     books = list(mongo.db.books.find())
     notes = list(mongo.db.notes.find().distinct("note_text"))
     return render_template("books.html", books=books, notes=notes)
+
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
@@ -171,7 +171,6 @@ def add_book():
             "book_name": request.form.get("book_name"),
             "genre": request.form.get("genre_name"),
             "author": request.form.get("author_name"),
-            "characters": request.form.getlist("characters_list"),
             "description": request.form.get("book_description"),
             "created_by": session['user']
         }
@@ -193,7 +192,6 @@ def edit_book(book_id):
             "book_name": request.form.get("book_name"),
             "genre": request.form.get("genre_name"),
             "author": request.form.get("author_name"),
-            "characters": request.form.getlist("characters_list"),
             "description": request.form.get("book_description"),
             "created_by": session['user']
         }
@@ -281,7 +279,8 @@ def add_note():
         flash("Note Successfully Added")
         return redirect(url_for("get_notes"))
 
-    notes = list(mongo.db.notes.find_one({"author": session['user']}).distinct("note_text"))
+    notes = list(mongo.db.notes.find_one(
+        {"author": session['user']}).distinct("note_text"))
     return render_template("notepad.html", notes=notes)
 
 
