@@ -67,7 +67,7 @@ footer {
 /* MAIN BODY */
 
 .container {
-    padding-left: 78px;
+    padding-left: 6rem;
 }
 
 .base-content {
@@ -567,6 +567,16 @@ font-size: 1rem;
     transform: translate( 5rem, 0rem);
 }
 
+.chapter-collapsible {
+    margin-bottom: 10rem;
+    margin-left: 9em;
+}
+
+.create-book-background {
+    background-color: #EEF0F2;
+     margin-left: 8rem;
+}
+
 }
 
 /* Laptops */
@@ -576,6 +586,18 @@ font-size: 1rem;
     margin-left: 0rem;
     transform: translate( 0rem, 0rem);  
 }  
+
+.create-book-background {
+    background-color: #EEF0F2;
+     margin-left: 0rem;
+}
+
+
+.chapter-collapsible {
+    margin-bottom: 10rem;
+    margin-left: 0rem;
+}
+
 
     
 .sidebar {
@@ -629,19 +651,38 @@ margin-right: 8px;
 
 /* Tablet Size */
 @media all and (max-width: 400px) {
+
+
+/* ADD BOOK AND CHAPTER BOX  */
+
+.create-book-background {
+    background-color: #EEF0F2;
+     margin-left: 0rem;
+}
+
+
+
+
 /* SIDEBAR */
+
+
 .sidebar {
     background-color: #11101d;
 }
 
 .sidebar.active {
-    width: 65px;
+    width: 80px;
  }
  
 /* ICONS */
 .sidebar ul {
 margin-right: 8px;
 }
+
+.book-page-container {
+    margin-left: 0rem;
+    transform: translate( 0rem, 0rem);  
+}  
 
 /* LOGO */
     .sidebar .logo-content .logo {
@@ -674,11 +715,23 @@ margin-right: 8px;
     display: none;
 }
 
-} 
+.nav-wrapper ul li a {
+    text-align: left;
+    font-size: 11px;
+}
+
+.border-top div p {
+     font-size: 10px;
+}
+
 /* LOGIN/REGISTER TEXT */
 .small-pad-login {
     padding-top: 0px;
 }
+
+
+} 
+
     
 /* Phones and smaller  */
 @media all and (max-width: 320px) {
@@ -689,7 +742,7 @@ margin-right: 8px;
 }
 
 .sidebar.active {
-    width: 65px;
+    width: 80px;
  }
 
 /* ICONS */
@@ -729,26 +782,6 @@ margin-right: 8px;
 }
 
 /* NAVBAR */
-.nav-bar-location {
-    position: absolute;
-    transition: all 0.5s ease;
-    padding: 0;
-    margin: 0;
-    left: 0;
-    transform: translate( -3rem, 0rem); 
-    width: 100%;
-    text-align: left;
-}
-
-.nav-bar-location {
-
-    position: absolute;
-    width: 100%;
-    font-size: 10px;
-    transition: all 0.5s ease;
-    padding: 0;
-    margin: 0;
-}
 
 .nav-wrapper ul li a {
     text-align: left;
@@ -766,11 +799,10 @@ footer {
     bottom: 0;
     text-align: center;
     position: absolute;
-    font-size: 6px!important;
 }
 
 .border-top div p {
-     font-size: 8px!important;
+     font-size: 10px;
 }
 
 } 
