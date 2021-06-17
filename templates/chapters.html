@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 <!-- Title -->
-    <div class="row title-row">
-        <div class="col s6 book-title">
-            <h2 class="underline">Chapters</h2>
-        </div>
-        <div class=" col s4">
-            <div class="book-create-btn plus-button">
-            <a class=" indigo lighten-1 waves-effect waves-light btn-large" href="{{ url_for('add_chapter') }}" ><i class="fas fa-plus left"></i>Add New Chapter</a>
-            </div>
+<!-- Page Title -->
+<h1 class="indigo lighten-4 center-align">Chapter List</h1>
+<!-- Button Add new books -->
+    <div class="row">
+        <div class="col s12 center-align">
+            <a class="waves-effect waves-light  indigo lighten-1 btn-large" href="{{ url_for('add_chapter') }}" >
+             <i class="fas fa-plus left"></i>Add New Chapter</a>
         </div>
     </div>
    {% if chapters|length > 0 %}
