@@ -498,17 +498,18 @@ nav {
 /* ERROR 404 PAGE */
 
 .error-text {
-     
+     text-align: center;
      font-family: 'Sora', sans-serif;
 }
 
 .big-nums{
 font-family: 'Grenze Gotisch', cursive;
-font size: 8rem;
+font-size: 5rem;
 }
 
 .error-head {
-font-family: 'Grenze Gotisch', cursive;
+font-family: 'Sora', sans-serif;
+font-size: 1rem;
 }
 
 

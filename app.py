@@ -19,6 +19,15 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+# app name
+@app.errorhandler(404)
+  
+# inbuilt function which takes error as parameter
+def not_found(e):
+
+# defining function
+  return render_template("404.html")
+
 
 def login_required(f):
     @wraps(f)
