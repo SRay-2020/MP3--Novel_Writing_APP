@@ -10,26 +10,9 @@
             </div>
         </div>
     </div>
-
-    <div class="row card-panel">
-        <form action="{{ url_for('search') }}" method="post" class="col s12">
-            <div class="row align-wrapper center-align">
-                <div class="input-field col s12 m8">
-                    <i class="fas fa-search prefix blue-grey darken-2"></i>
-                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
-                    <label for="query">Search Content</label>
-                </div>
-                <div class="col s12 m4">
-                    <a href="{{ url_for('get_books') }}" class="red btn text-shadow">Cancel</a>
-                    <button type ="submit" class="btn drop-shadow blue-grey darken-3">
-                        <i class="fas fa-search left">Search</i>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div> 
+    
     <div class="row profile-list-top">
-        
+
         <div class="col s6 m5">
             <div class="card-panel  blue-grey darken-1">
                 <h4>
@@ -46,27 +29,4 @@
         </div>  
     </div>
     
-    <div class="row profile-lists">
-        <!-- List User Books -->
-        {% for book in books %}
-            <div class="col s6 m5">
-                <div class="card-panel blue-grey lighten-1">
-                    <span class="white-text">{{ book.book_name }}
-                    </span>
-                </div>
-            </div>
-        {% endfor %}
-        <!-- List User Chapters -->
-        {% for chapter in chapters %}
-            <div class="col s6 m5">
-                <div class="card-panel blue-grey lighten-1">
-                    <span class="white-text">{{ chapter.chapter_name }}
-                    </span>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-  
-  
-
 {% endblock %}

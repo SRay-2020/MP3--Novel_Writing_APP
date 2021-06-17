@@ -514,8 +514,9 @@ font-size: 1rem;
 
 /* PROFILE PAGE STYLES */
 
-.card-panel-size{
-    width: 10rem;
+.banner-size{
+    width: 55rem;
+    transform: translate(13rem, 0rem);
 }
 
 .profile-list-top {
@@ -525,6 +526,7 @@ font-size: 1rem;
 .profile-lists {
     padding-bottom: 3rem;
     transform: translate(5rem, 0rem);
+    flex-wrap: wrap;
 }
 
 /* Media Queries for sidebar  */
