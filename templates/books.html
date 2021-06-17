@@ -9,7 +9,6 @@
              <i class="fas fa-plus left"></i>Create New Book</a>
         </div>
     </div>
-
 <!-- CARD TUTORIAL FOR BOOKS -->
 <div class="book-page-container">
     {% for book in books %}    
@@ -29,7 +28,6 @@
                             <p><strong>Genre:</strong> {{ book.genre }}</p>
                             <p><strong>Description:</strong> {{ book.description }}</p>
                             <p class="card-user"><em>user: {{ book.created_by }}</em></p>
-                            
                         </div>
                         <div class="book-button">
                             {% if session.user|lower == book.created_by|lower %}
@@ -44,7 +42,4 @@
         </div>
     {% endfor %}
 </div>
-
-
-
 {% endblock %}

@@ -1,10 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-
     <h3 class="blue-grey center-align">Edit Chapter</h3>
-    <!-- ICON INPUT -->
+    <!-- BACKGROUND -->
     <div class="main-page create-book-background">
-
         <div class="row card-panel grey lighten-5">
             <form class="col s12" method="POST" action="{{ url_for('edit_chapter', chapter_id=chapter._id) }}">
                 <!-- TITLE -->
@@ -35,7 +33,7 @@
                         <label for="outline_name">Chapter Outline</label>
                     </div>
                 </div>
-               <!-- Book Select - for Chapter Page -->
+               <!-- BOOK SELECT - for Chapter Page -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-folder-open prefix blue-grey-text"></i>
@@ -59,12 +57,9 @@
                         </button>
                     </div>
                 </div>
-
             </form>
         </div>
-
     </div>
-
 {% endblock %}
 
 
