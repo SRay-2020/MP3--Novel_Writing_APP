@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 
 # app name
 @app.errorhandler(404)
-  
+
 # inbuilt function which takes error as parameter
 def not_found(e):
 
@@ -47,6 +47,13 @@ def get_books():
     books = list(mongo.db.books.find())
     notes = list(mongo.db.notes.find().distinct("note_text"))
     return render_template("books.html", books=books, notes=notes)
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    chapters = list(mongo.db.chapters.find({"$text": {"$search": query}}))
+    notes = list(mongo.db.notes.find().distinct("note_text"))
+    return render_template("profile.html", notes=notes, chapters=chapters)
 
 
 @app.route("/get_chapters")
@@ -135,10 +142,11 @@ def profile(username):
         username = mongo.db.users.find_one(
             {"username": session['user']})["username"]
         # Show count of own books and chapters to user
-        booknum = mongo.db.books.count({'user': username}),
+        booknum = mongo.db.books.count({'user': username})
         chapnum = mongo.db.chapters.count({'user': username}),
-        books = list(mongo.db.books.find().sort("book_name", 1)),
-        chapters = list(mongo.db.chapters.find().sort("chapter_name", 1)),
+        # books = list(mongo.db.books.find().sort("book_name", 1)),
+        books = list(mongo.db.books.find())
+        chapters = list(mongo.db.chapters.find())
         notes = list(mongo.db.notes.find().distinct("note_text"))
 
         return render_template(
@@ -273,7 +281,7 @@ def add_note():
         flash("Note Successfully Added")
         return redirect(url_for("get_notes"))
 
-    notes = list(mongo.db.notes.find().distinct("note_text"))
+    notes = list(mongo.db.notes.find_one({"author": session['user']}).distinct("note_text"))
     return render_template("notepad.html", notes=notes)
 
 

@@ -512,7 +512,20 @@ font-family: 'Sora', sans-serif;
 font-size: 1rem;
 }
 
+/* PROFILE PAGE STYLES */
 
+.card-panel-size{
+    width: 10rem;
+}
+
+.profile-list-top {
+    transform: translate(5rem, 0rem);
+}
+
+.profile-lists {
+    padding-bottom: 3rem;
+    transform: translate(5rem, 0rem);
+}
 
 /* Media Queries for sidebar  */
 
