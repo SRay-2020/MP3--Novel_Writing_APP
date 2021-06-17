@@ -45,15 +45,12 @@ def login_required(f):
 def get_books():
     books = list(mongo.db.books.find())
     notes = list(mongo.db.notes.find().distinct("note_text"))
-    return render_template("books.html", books=books, notes=notes)
-
-
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    query = request.form.get("query")
-    chapters = list(mongo.db.chapters.find({"$text": {"$search": query}}))
-    notes = list(mongo.db.notes.find().distinct("note_text"))
-    return render_template("profile.html", notes=notes, chapters=chapters)
+    username = mongo.db.users.find_one(
+            {"username": session['user']})["username"]
+    notesdisplay = list(mongo.db.notes.find({"author": username}).distinct("note_text"))
+    
+    return render_template("books.html",
+            books=books, notes=notes, notesdisplay=notesdisplay)
 
 
 @app.route("/get_chapters")
@@ -62,14 +59,21 @@ def get_chapters():
     # SORT CHAPTERS BY A-Z SEQUENCE
     # https://www.tutorialspoint.com/mongodb/mongodb_sort_record.htm?fbclid=IwAR0UYkyl4zG_r4a7phaatoSmqkGZSZi41frbj3cbozDqOJp4APY1YKSc7WY
     chapters = list(mongo.db.chapters.find().sort("sequence", 1))
+    username = mongo.db.users.find_one(
+            {"username": session['user']})["username"]
     notes = list(mongo.db.notes.find().distinct("note_text"))
-    return render_template("chapters.html", chapters=chapters, notes=notes)
+    notesdisplay = list(mongo.db.notes.find({"author": username}).distinct("note_text"))
+    return render_template("chapters.html",
+            chapters=chapters, notes=notes, notesdisplay=notesdisplay)
 
 
 @app.route("/get_notes")
 def get_notes():
     notes = list(mongo.db.notes.find().distinct("note_text"))
-    return render_template("notepad.html", notes=notes)
+    username = mongo.db.users.find_one(
+            {"username": session['user']})["username"]
+    notesdisplay = list(mongo.db.notes.find({"author": username}).distinct("note_text"))
+    return render_template("notepad.html", notes=notes, notesdisplay=notesdisplay)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -144,15 +148,14 @@ def profile(username):
         # Show count of own books and chapters to user
         booknum = mongo.db.books.count({"created_by": username})
         chapnum = mongo.db.chapters.count({"author": username})
-        # books = list(mongo.db.books.find().sort("book_name", 1)),
         books = list(mongo.db.books.find())
         chapters = list(mongo.db.chapters.find())
-        notes = list(mongo.db.notes.find().distinct("note_text"))
+        notesdisplay = list(mongo.db.notes.find({"author": username}).distinct("note_text"))
 
         return render_template(
             "profile.html", username=username,
             booknum=booknum, chapnum=chapnum,
-            notes=notes, books=books, chapters=chapters)
+            notesdisplay=notesdisplay, books=books, chapters=chapters)
 
 
 @app.route("/add_book", methods=["GET", "POST"])
@@ -178,9 +181,11 @@ def add_book():
 
         flash("Book Successfully Added")
         return redirect(url_for("get_books"))
-
+    username = mongo.db.users.find_one(
+            {"username": session['user']})["username"]
+    notesdisplay = list(mongo.db.notes.find({"author": username}).distinct("note_text"))
     notes = list(mongo.db.notes.find().distinct("note_text"))
-    return render_template("add_book.html", notes=notes)
+    return render_template("add_book.html", notes=notes, notesdisplay=notesdisplay)
 
 
 @app.route("/edit_book/<book_id>", methods=["GET", "POST"])
@@ -200,8 +205,11 @@ def edit_book(book_id):
 
     notes = list(mongo.db.notes.find().distinct("note_text"))
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    username = mongo.db.users.find_one(
+            {"username": session['user']})["username"]
+    notesdisplay = list(mongo.db.notes.find({"author": username}).distinct("note_text"))
     return render_template(
-        "edit_book.html", book=book, notes=notes)
+        "edit_book.html", book=book, notes=notes, notesdisplay=notesdisplay)
 
 
 @app.route("/delete_book/<book_id>")
@@ -228,9 +236,13 @@ def add_chapter():
         flash("Chapter Successfully Added")
         return redirect(url_for("get_chapters"))
 
+    username = mongo.db.users.find_one(
+            {"username": session['user']})["username"]
+    notesdisplay = list(mongo.db.notes.find({"author": username}).distinct("note_text"))
     books = mongo.db.books.find().sort("book_name", 1)
     notes = list(mongo.db.notes.find().distinct("note_text"))
-    return render_template("add_chapter.html", books=books, notes=notes)
+    return render_template("add_chapter.html",
+            books=books, notes=notes, notesdisplay=notesdisplay)
 
 
 @app.route("/edit_chapter/<chapter_id>", methods=["GET", "POST"])
