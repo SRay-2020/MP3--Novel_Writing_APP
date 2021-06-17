@@ -495,9 +495,21 @@ nav {
     text-decoration: underline;
 }
 
+/* ERROR 404 PAGE */
 
+.error-text {
+     
+     font-family: 'Sora', sans-serif;
+}
 
+.big-nums{
+font-family: 'Grenze Gotisch', cursive;
+font size: 8rem;
+}
 
+.error-head {
+font-family: 'Grenze Gotisch', cursive;
+}
 
 
 

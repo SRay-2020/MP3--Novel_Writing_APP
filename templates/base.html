@@ -48,6 +48,7 @@
             <i class="fas fa-bars" id="btn"></i>
         </div>
         <ul class="nav-list">
+            
             <li>
                 <a href="{{ url_for('get_books') }}">
                     <i class="fas fa-book"></i>
@@ -62,6 +63,7 @@
                 </a>
                 <span class="tooltip">Chapters</span>
             </li>
+            {% if session.user %}
             <li>
                 <a class="modal-trigger" href="#modal1">
                     <i class="far fa-sticky-note"></i>
@@ -76,6 +78,7 @@
                 </a>
                 <span class="tooltip">Profile</span>
             </li>
+            {% endif %}
         </ul>
     </div>
 <!-- FLASH MESSAGES -->
