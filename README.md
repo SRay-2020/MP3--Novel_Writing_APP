@@ -141,6 +141,11 @@ These areas are:
       -Popup modal to display notes
 6. User Profile Page - which includes information about their existing files
 
+The relational logic of the Database being used were considered before the creation of the project and are outlined in the logic chart below which helps to visualise the how the database can be accessed. 
+
+<img src="static/img/mp3logicchart.png"> 
+
+
 ### **SKELETON**
 
 Differences between final design and wireframes:
