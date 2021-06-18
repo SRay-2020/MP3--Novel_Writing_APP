@@ -272,8 +272,9 @@ These changes included -
     • Removing ‘unnecessary CSS’ 
 
 This change increased score in Performance from 92% to 100%. 
+
 2. Accessibility:
-  • Changed colour contrast of site to improve Accessibility
+    • Changed colour contrast of site to improve Accessibility
 
  This change increased score in Accessibility from 90% to 95%.
 
@@ -301,72 +302,164 @@ Below are a list of the
 
 Tests will be applied to all the pages included in the project, these pages will be referred to as:
 
- - Book Page
- - Chapter Page
- - Book Add Page/Chapter Add Page
- - Book Edit Page/Chapter Edit Page
- - Profile Page
- - Notepad Page
+ 1. Book Page
+ 2. Chapter Page
+ 3. Book Add Page/Chapter Add Page
+ 4. Book Edit Page/Chapter Edit Page
+ 5. Profile Page
+ 6. Note Editor Page
 
-**Test Case 1:** Initial Page Load
+**Test Case I:** Initial Page Load and display
 
-Book Page - 
+1. Book Page - 
 - Expected Behaviour: Page will load correctly and promptly, with all elements in place where they should be.
 - Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
 - Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
-Chapter Page - 
+2. Chapter Page - 
 - Expected Behaviour: Page will load correctly and promptly, with all elements in place where they should be.
 - Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
 - Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
-Book Add Page/Chapter Add Page - 
+3. Book Add Page/Chapter Add Page - 
 - Expected Behaviour: Page will load correctly and promptly, with all elements in place where they should be.
 - Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
 - Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
-Book Edit Page/Chapter Edit Page - 
+4. Book Edit Page/Chapter Edit Page - 
 - Expected Behaviour: Page will load correctly and promptly, with all elements in place where they should be.
 - Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
 - Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
-Profile - 
+5. Profile - 
 - Expected Behaviour: Page will load correctly and promptly, with all elements in place where they should be.
 - Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
 - Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
-Notepad - 
+6. Note Editor - 
 - Expected Behaviour: Page will load correctly and promptly, with all elements in place where they should be.
 - Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
 - Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
+**Test Case II:** Ensure all navigation links are displayed and work correctly for (a) - 'Logged Out' and (b) - 'Logged In' users
 
-**Test Case 2:** 
+1. (a) Book Page - Logged out User
+- Expected Behaviour: Links to 'Home', 'Login' and 'Register' all to appear on top navbar and links to 'Books' and 'Chapters' to appear on side navbar. 
+  All should redirect to respective pages except Chapters which should redirect to 'Login' page and force login request.
+- Observed Results: All links worked as intended and were satisfactory.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
-Landing Page - 
-- Expected Behaviour: 
-- Observed Results: 
-- Test Summary: 
+1. (b) Book Page - Logged In User
+- Expected Behaviour: Links to 'Home', 'Note Editor' and 'Logout' all to appear on top navbar and links to 'Books', 'Chapters', 'Notepad' and 'Profile' to appear on side navbar. 
+  All should redirect to respective pages except 'Notepad which should initiate notepad popup modal.
+- Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
-Second Page - 
-- Expected Behaviour: 
-- Observed Results: 
-- Test Summary: 
+2. (a) Chapter Page - Logged out User
+- Expected Behaviour: Page will not display for logged out user.
+- Observed Results: This page does not display for logged out users.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
-**Test Case 3:** 
+2. (b) Chapter Page - Logged In User
+- Expected Behaviour: Links to 'Home', 'Note Editor' and 'Logout' all to appear on top navbar and links to 'Books', 'Chapters', 'Notepad' and 'Profile' to appear on side navbar. 
+  All should redirect to respective pages except 'Notepad which should initiate notepad popup modal.
+- Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
-Landing Page - 
-- Expected Behaviour: 
-- Observed Results: 
-- Test Summary: 
+3. (a) Book Add Page/Chapter Add Page - Logged out User
+- Expected Behaviour: Page will not display for logged out user.
+- Observed Results: This page does not display for logged out users.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
-Second Page - 
-- Expected Behaviour: 
-- Observed Results:
-- Test Summary: 
+3. (b) Book Add Page/Chapter Add Page - Logged In User
+- Expected Behaviour: Links to 'Home', 'Note Editor' and 'Logout' all to appear on top navbar and links to 'Books', 'Chapters', 'Notepad' and 'Profile' to appear on side navbar. 
+  All should redirect to respective pages except 'Notepad which should initiate notepad popup modal.
+- Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+4. (a) Book Edit Page/Chapter Edit Page - Logged out User
+- Expected Behaviour: Page will not display for logged out user.
+- Observed Results: This page does not display for logged out users.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+4. (b) Book Edit Page/Chapter Edit Page - Logged In User
+- Expected Behaviour: Links to 'Home', 'Note Editor' and 'Logout' all to appear on top navbar and links to 'Books', 'Chapters', 'Notepad' and 'Profile' to appear on side navbar. 
+  All should redirect to respective pages except 'Notepad which should initiate notepad popup modal.
+- Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+5. (a) Profile - Logged out User
+- Expected Behaviour: Page will not display for logged out user.
+- Observed Results: This page does not display for logged out users.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+5. (b) Profile - Logged In User
+- Expected Behaviour: Links to 'Home', 'Note Editor' and 'Logout' all to appear on top navbar and links to 'Books', 'Chapters', 'Notepad' and 'Profile' to appear on side navbar. 
+  All should redirect to respective pages except 'Notepad which should initiate notepad popup modal.
+- Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results.
+
+6. (a) Note Editor - Logged out User
+- Expected Behaviour: Page will not display for logged out user.
+- Observed Results: This page does not display for logged out users.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+6. (b) Note Editor - Logged In User
+- Expected Behaviour: Links to 'Home', 'Note Editor' and 'Logout' all to appear on top navbar and links to 'Books', 'Chapters', 'Notepad' and 'Profile' to appear on side navbar. 
+  All should redirect to respective pages except 'Notepad which should initiate notepad popup modal.
+- Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+**Test Case III:** Ensure all clickable elements/buttons and forms on page function correctly
+
+1. (a) Book Page - Logged out User
+- Expected Behaviour: When 'Book' is clicked it should flip to display content details of book and when 'Create new Book' is clicked it should direct user to 'Login' page.
+- Observed Results: When 'Book' was clicked it flipped and when 'Create New Book' button was clicked it redirected user to login page.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+1. (b) Book Page - Logged In User
+- Expected Behaviour: When 'Book' is clicked it should flip to display content details of book and when 'Create new Book' is clicked it should direct user to 'Add Book' page.
+    If current user is also the creator of this item, the additional option of 'Edit' and 'Delete' should appear on flipside of the book item. The 'Edit' button should redirect user to 'Edit Book' page and
+    the 'Delete' button should prompt user to confirm the want to delete the book via a popup button.
+- Observed Results: When 'Book' was clicked it flipped and when 'Create New Book' button was clicked it redirected user to 'Add Book' page. 'Edit' book button redirected to 'Edit Book' page and the 'Delete' button returned 
+    a popup to user to make sure they want to delete object. When 'Ok' was selected here the object was deleted and when 'Cancel' was selected the object was not deleted.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+2. Chapter Page - 
+- Expected Behaviour: When 'Chapter' is clicked in collapsible list it should extend to display content details of chapter and when 'Add New Chapter' is clicked it should direct user to 'Add Chapter' page.
+    If the current user is the creator of the object the additional option of 'Edit' and 'Delete' should appear on the displayed chapter item. The 'Edit' button should redirect user to 'Edit Chapter' page and
+    the 'Delete' button should prompt user to confirm the want to delete the chapter via a popup button.
+- Observed Results: When 'Chapter' was clicked it extended down to display content and when 'Add New Chapter' button was clicked it redirected user to 'Add Chapter' page. The 'Edit' chapter button redirected to 'Edit Chapter' page and the 'Delete' button returned 
+    a popup to user to make sure they want to delete object. When 'Ok' was selected here the object was deleted and when 'Cancel' was selected the object was not deleted.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+3. Book Add Page/Chapter Add Page - 
+- Expected Behaviour: When form is clicked it should request a minimum value input from user and all fields should be required, the save button should store data and redirect user back to 
+    'Books' and 'Chapter' page (respective to what is being added). The add 'Chapter' form shoudl require user to select a corresponding 'Book' from dropdown before creating.
+- Observed Results: Form requested a required and minimum value input to create new object, 'Chapter' page required user select a 'Book' from dropdown.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+4. Book Edit Page/Chapter Edit Page - 
+- Expected Behaviour: When form is clicked it should display the existing values for all fields and if edited it should still request a minimum value input from user and all fields should be required, the save button should store data and redirect user back to 
+    'Books' and 'Chapter' page (respective to what is being added). The add 'Chapter' form should require user to select a corresponding 'Book' from dropdown before creating.
+- Observed Results: The form displayed the exisitng information and when edited it requested a required and minimum value input to create new object, the 'Chapter' page still required user select a 'Book' from dropdown.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+5. Profile - 
+    There are no clickable buttons or forms on this page.
+
+6. Note Editor - 
+- Expected Behaviour: When form is clicked it should request a minimum value input from user and is a required field. The 'Save Note' button should store data. (Which can be seen by user when 'Notepad' button on sidebar is selected.)
+- Observed Results: The form had a minimum and required value and when 'Save Note' was clicked the note was stored and visible in 'Notepad' popup modal. 
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+**Test Case Iv:** Flash messages
 
 
-**Test Case 16:** Error 404 Page
+
+
+
+**Test Case X:** Error 404 Page
 
 Error 404 Page - 
 - Expected Behaviour: If a user inputs an incorrect HTML the custom 'Error 404' HTML page should be displayed, including navigation back to other pages of website. 
