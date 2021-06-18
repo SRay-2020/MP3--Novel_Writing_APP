@@ -13,7 +13,6 @@
 ### Link to Live Site - "#"
 
 
-### **MOCKUPS**
 
 <img src="static/img/mp3amiresponsive.png">
 
@@ -180,8 +179,7 @@ The book covers were designed and created by the author to give the impression a
 - User can create unique login name and password to protect projects
 - User can create, read, update and delete 'Book' objects
 - User can create, read, update and delete 'Chapter' objects
-- User can create, save and delete quick notes
-- Search function allows user to search for books or chapters in database
+- User can create and save quick notes
 - Profile page with database query feedback (number of Books and Chatpers created)
 
 ### **FUTURE FEATURES**
@@ -190,6 +188,7 @@ The book covers were designed and created by the author to give the impression a
 - Darkmode for night time use
 - Further customisation of user 'Profile page' including user profile picture and more feedback
 - Allow users create custom forms or inputs to database to recall (scenes etc.)
+- Give users more control over notes, includng delete and edit
 
 
 ### **TECHNOLOGIES USED**
