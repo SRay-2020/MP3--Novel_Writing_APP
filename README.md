@@ -142,9 +142,9 @@ The relational logic of the Database being used were considered before the creat
 
 Differences between final design and wireframes:
 
-There was some difference between the final design and the wireframes. By adding in a 'flip' function on the 'Books page' more information could be displayed to the user about their exisitng books and it gives a better feeling of a library. The user 'Profile page' was also enchanced to give users more feedback about their existing files. 
+There was some difference between the final design and the wireframes. By adding in a 'flip' function on the 'Books page' more information could be displayed to the user about their exisitng books and it gives a better feeling of a library. The user 'Profile page' was also enchanced to give users more feedback about their existing files including a return of how many individual chapters and books each author incldued. 
 
-***<img src="assets/images/MP2 - Wireframe goes here!!!.png">***
+<img src="static/img/mp3wireframe.png"> 
 
 ##### Created at the outset of the project to direct the stylistic development. 
 
