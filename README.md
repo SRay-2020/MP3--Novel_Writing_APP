@@ -264,25 +264,30 @@ Chrome Lighthouse was used to ensure that the website has been deployed in the m
     • Accessibility
     • Best Practices
     • SEO
-To bring this project to score this high some changes were made in all four categories to raise the score to be all registering at the highest bracket (90% +). 
+
+To bring this project to score this high some changes were made in some of the categories to raise the score to be all registering at the highest score possible. 
 
 These changes included - 
 1. Performance: 
-    • Added ‘defer’ to the font styles to allow a faster load of base site 
     • Removing ‘unnecessary CSS’ 
-These two changes increased score in Performance from 76% to 97%. 
+
+This change increased score in Performance from 92% to 100%. 
 2. Accessibility:
-    • Added new colours to increase contrast to improve visibility. 
-This change increased score in Accessibility from 86% to 100%. 
+  • Changed colour contrast of site to improve Accessibility
+
+ This change increased score in Accessibility from 90% to 95%.
+
 3. Best Practices:
-    • Images were changed to correct aspect ratio
-    • Images that had been displayed at low resolution were replaced
-These two changes increased score in Performance from 86% to 93%. 
+
+Could not change aspect ratio of image overlay to improve this score without losing the desired visual effect .
+
 4. SEO:
     • Added meta description to document 
-This change increased score from 92% to 100%. 
+This change increased score from 80% to 82%. 
 
-<img src="assets/images/lighthouse.png">
+Remaining issue was to do with the 'robot.txt' score for search engine results, unfortunately this issue is beyond my own knowledge at the current time of writing this but I strive to gain an understanding and include these changes in future versions for full SEO optimisation.
+
+<img src="static/img/mp3lighthouse.png">
 
 #### **Function tests -**
 
@@ -293,24 +298,48 @@ Below are a list of the
 - Expected behaviour
 - Observed Results
 - Summary of expected behaviour and results 
-These tests will be applied to the three pages included in the project (Landing Page, Second Page, Contact Page).
 
-**Test Case 1:** Initial Load
+Tests will be applied to all the pages included in the project, these pages will be referred to as:
 
-Landing Page - 
+ - Book Page
+ - Chapter Page
+ - Book Add Page/Chapter Add Page
+ - Book Edit Page/Chapter Edit Page
+ - Profile Page
+ - Notepad Page
+
+**Test Case 1:** Initial Page Load
+
+Book Page - 
 - Expected Behaviour: Page will load correctly and promptly, with all elements in place where they should be.
 - Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
 - Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
-Second Page - 
+Chapter Page - 
 - Expected Behaviour: Page will load correctly and promptly, with all elements in place where they should be.
 - Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
 - Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
-Contact Page - 
+Book Add Page/Chapter Add Page - 
 - Expected Behaviour: Page will load correctly and promptly, with all elements in place where they should be.
 - Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
 - Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+Book Edit Page/Chapter Edit Page - 
+- Expected Behaviour: Page will load correctly and promptly, with all elements in place where they should be.
+- Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+Profile - 
+- Expected Behaviour: Page will load correctly and promptly, with all elements in place where they should be.
+- Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+Notepad - 
+- Expected Behaviour: Page will load correctly and promptly, with all elements in place where they should be.
+- Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
 
 **Test Case 2:** 
 
