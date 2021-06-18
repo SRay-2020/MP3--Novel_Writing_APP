@@ -141,7 +141,7 @@ The relational logic of the Database being used were considered before the creat
 
 Differences between final design and wireframes:
 
-There was some difference between the final design and the wireframes. By adding in a 'flip' function on the 'Books page' more information could be displayed to the user about their exisitng books and it gives a better feeling of a library. The user 'Profile page' was also enchanced to give users more feedback about their existing files including a return of how many individual chapters and books each author incldued. 
+There was some difference between the final design and the wireframes. By adding in a 'flip' function on the 'Books page' more information could be displayed to the user about their existng books and it gives a better feeling of a library. The user 'Profile page' was also enhanced to give users more feedback about their existing files including a return of how many individual chapters and books each author incldued. 
 
 <img src="static/img/mp3wireframe.png"> 
 
@@ -168,7 +168,7 @@ The author used Coolers.com to create a consistent and visually appealing colour
 
 Images -
 
-The book covers were designed and created by the author to give the impression and feeling of an old library to enchance user expereience. 
+The book covers were designed and created by the author to give the impression and feeling of an old library to enhance user expereience. 
 
 
 ### **FEATURES**
@@ -197,7 +197,7 @@ Python - For creating main application and majority of functionality
 
 MongoDB - For storing and accessing Database
 
-Flask - For wraping functions and tools (Jinja and Werkzeug)
+Flask - For wrapping functions and tools (Jinja and Werkzeug)
 
 HTML – For creating pages
 
@@ -241,7 +241,7 @@ AmIResponsive (website) - To ensure site is responsive and create mockup
 
 #### **Code tests -**
 
-The CSS code was passed through W3C CSS Validator and final version contained no errors. It was also passed through AutoPrefixer Online to parse CSS and add vendor prefixes to ensure vaidity.
+The CSS code was passed through W3C CSS Validator and final version contained no errors. It was also passed through AutoPrefixer Online to parse CSS and add vendor prefixes to ensure validity.
 
 <img src="static/img/mp3cssvalidation.png">
 
@@ -308,6 +308,7 @@ Tests will be applied to all the pages included in the project, these pages will
  4. Book Edit Page/Chapter Edit Page
  5. Profile Page
  6. Note Editor Page
+ 7. Login/Register
 
 **Test Case I:** Initial Page Load and display
 
@@ -337,6 +338,12 @@ Tests will be applied to all the pages included in the project, these pages will
 - Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
 6. Note Editor - 
+- Expected Behaviour: Page will load correctly and promptly, with all elements in place where they should be.
+- Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+7. Login/Register - 
+
 - Expected Behaviour: Page will load correctly and promptly, with all elements in place where they should be.
 - Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
 - Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
@@ -410,6 +417,13 @@ Tests will be applied to all the pages included in the project, these pages will
 - Observed Results: When loaded this page loaded without any issue and in a time that was satisfactory.
 - Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
+7. Login/Register - 
+
+- Expected Behaviour: Links to 'Home', 'Login' and 'Register' all to appear on top navbar and links to 'Books' and 'Chapters' to appear on side navbar. 
+  All should redirect to respective pages except Chapters which should redirect to 'Login' page and force login request.
+- Observed Results: All links worked as intended and were satisfactory.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
 **Test Case III:** Ensure all clickable elements/buttons and forms on page function correctly
 
 1. (a) Book Page - Logged out User
@@ -442,7 +456,7 @@ Tests will be applied to all the pages included in the project, these pages will
 4. Book Edit Page/Chapter Edit Page - 
 - Expected Behaviour: When form is clicked it should display the existing values for all fields and if edited it should still request a minimum value input from user and all fields should be required, the save button should store data and redirect user back to 
     'Books' and 'Chapter' page (respective to what is being added). The add 'Chapter' form should require user to select a corresponding 'Book' from dropdown before creating.
-- Observed Results: The form displayed the exisitng information and when edited it requested a required and minimum value input to create new object, the 'Chapter' page still required user select a 'Book' from dropdown.
+- Observed Results: The form displayed the existing information and when edited it requested a required and minimum value input to create new object, the 'Chapter' page still required user select a 'Book' from dropdown.
 - Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
 5. Profile - 
@@ -453,13 +467,57 @@ Tests will be applied to all the pages included in the project, these pages will
 - Observed Results: The form had a minimum and required value and when 'Save Note' was clicked the note was stored and visible in 'Notepad' popup modal. 
 - Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
-**Test Case Iv:** Flash messages
+7. Login/Register - 
+
+- Expected Behaviour: When form is clicked it should request a minimum value input from user and all fields should be required, the Login/Register button should submit data and redirect user back to 
+    'Books'home page.
+- Observed Results: The form requested a required and minimum value input to Login/Register. When login/registration was successful the page flashed image to user to confirm and when unsuccessful this was also reflected to user. 
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
 
+**Test Case IV:** Flash message display 
+
+1. Book Page - 
+- Expected Behaviour: Flash messages will display on top of page in bright banner when initiated.
+- Observed Results: Feedback messages were flashed to user when they were required and had been correctly triggered.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+2. Chapter Page - 
+- Expected Behaviour: Flash messages will display on top of page in bright banner when initiated.
+- Observed Results: Feedback messages were flashed to user when they were required and had been correctly triggered.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
 
+3. Book Add Page/Chapter Add Page - 
+- Expected Behaviour: Flash messages will display on top of page in bright banner when initiated.
+- Observed Results: Feedback messages were flashed to user when they were required and had been correctly triggered.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
 
-**Test Case X:** Error 404 Page
+
+4. Book Edit Page/Chapter Edit Page - 
+- Expected Behaviour: Flash messages will display on top of page in bright banner when initiated.
+- Observed Results: Feedback messages were flashed to user when they were required and had been correctly triggered.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+
+5. Profile - 
+- Expected Behaviour: Flash messages will display on top of page in bright banner when initiated.
+- Observed Results: Feedback messages were flashed to user when they were required and had been correctly triggered.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+
+6. Note Editor - 
+- Expected Behaviour: Flash messages will display on top of page in bright banner when initiated.
+- Observed Results: Feedback messages were flashed to user when they were required and had been correctly triggered.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+7. Login/Register -
+- Expected Behaviour: Flash messages will display on top of page in bright banner when initiated.
+- Observed Results: Feedback messages were flashed to user when they were required and had been correctly triggered.
+- Test Summary: There was no outstanding differences between the expected behaviour of this test and the observed results. 
+
+
+**Test Case V:** Error 404 Page
 
 Error 404 Page - 
 - Expected Behaviour: If a user inputs an incorrect HTML the custom 'Error 404' HTML page should be displayed, including navigation back to other pages of website. 
@@ -488,50 +546,57 @@ Though the sote was developed through Google Chrome, after it had been deployed 
 **Website user -**
 
 1. As a user I want a visually appealing and smooth website experience
+- Website is clean and crisp and doesn't distract user from writing planning work
 
 2. As a user I want to be given visual feedback about my actions 
+- Website contains many visual feedbacks to user on navbar, sidebar, buttons and clickable cursor elements over all pages
 
 3. As a website user I want to be able to navigate the website easily and intuitively
+- Website has a navbar and a sidebar with clear labels to giver user an intuitive navigating expereience.
 
 4. As a user I want a consistent experience, that is the same every time I come back to the website and on any device
+- This website was developed with all media screen size requirements and is responsive across all frequently used sizes
 
 5. As a user I want to have my information protected by a password
+- This website uses password hashing to verify that a user has entered correct password before allowing them access to any data on site
 
 **Writer -**
 
 6. As a writer I want to be able to create new books which I can read, edit and delete
+- This website allows users to create, read, edit and delete objects which are displayed and behave like books to the user
 
 7. As a writer I want to be able to create new chapters which I can read, edit and delete
+- This website allows users to create, read, edit and delete objects which are displayed and behave like chapters to the user
 
 8. As a writer I want to be able to get information about how many books and chapters I have created
+- On the user profile page, feed back is given about how many books and chapters they have created which actively updates as more are created
 
 9. As a writer I want to write quick notes which I can store and see later
+- The notepad feature allows users to create quick notes and view them easily as a popup modal over any screen
 
 10. As a writer I want an application that is visually clean and simple to user so I can focus on my writing
+- The aesthetic of this website is clean and minimalist to allow user to focus on their writing
 
 11. As a writer I want an app that I can use on desktop, tablet or mobile
+- This application is deployed to the internet and can be accessed from and device on the internet
 
 **Website Owner -** 
 
 12. As the website owner I want the users to enjoy using my application
+- This website offers users a novel way to create, read, edit and delete files in a way which can assist in the visual conceptualisation of planning a novel
 
 13. As the website owner I want users to stay on my site for as long as possible
+- This website has enough varied functionality that users could spend considerable time using this application
 
 14. As the website owner I want the users to return to my website
+- This website is simple, clean and functional and hopefully users would want top return
 
 15. As the website owner I want users to be able to trust the security features that I have implemented
+- Security features have been implemented to protect users, including user account password protection
 
 ### **BUG FIXES**
 
-The project contained some major bugs, these were - 
-
-BUG 1: 
-
-BUG 2: 
-
-BUG 3:
-
-BUG 4:
+This project contained no major bug issues.
 
 ### **IMPLEMENTATION ISSUES**
 
@@ -563,6 +628,8 @@ Requirements needed to initialise project -
 - pip3 install PyMongo
 - pip3 install dnspython
 - pip3 install flask-pymongo
+
+All additional requirements can be found i the 'requirements.txt' file. 
 
 ### **CREDITS**
 
