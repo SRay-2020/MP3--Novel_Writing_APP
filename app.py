@@ -45,12 +45,9 @@ def login_required(f):
 def get_books():
     books = list(mongo.db.books.find())
     notes = list(mongo.db.notes.find().distinct("note_text"))
-    username = mongo.db.users.find_one(
-            {"username": session['user']})["username"]
-    notesdisplay = list(mongo.db.notes.find({"author": username}).distinct("note_text"))
     
     return render_template("books.html",
-            books=books, notes=notes, notesdisplay=notesdisplay)
+            books=books, notes=notes)
 
 
 @app.route("/get_chapters")
