@@ -45,9 +45,9 @@ def login_required(f):
 def get_books():
     books = list(mongo.db.books.find())
     notes = list(mongo.db.notes.find().distinct("note_text"))
-    
+
     return render_template("books.html",
-            books=books, notes=notes)
+                           books=books, notes=notes)
 
 
 @app.route("/get_chapters")
@@ -59,9 +59,11 @@ def get_chapters():
     username = mongo.db.users.find_one(
             {"username": session['user']})["username"]
     notes = list(mongo.db.notes.find().distinct("note_text"))
-    notesdisplay = list(mongo.db.notes.find({"author": username}).distinct("note_text"))
+    notesdisplay = list(mongo.db.notes.find(
+        {"author": username}).distinct("note_text"))
     return render_template("chapters.html",
-            chapters=chapters, notes=notes, notesdisplay=notesdisplay)
+                           chapters=chapters, notes=notes,
+                           notesdisplay=notesdisplay)
 
 
 @app.route("/get_notes")
@@ -69,8 +71,10 @@ def get_notes():
     notes = list(mongo.db.notes.find().distinct("note_text"))
     username = mongo.db.users.find_one(
             {"username": session['user']})["username"]
-    notesdisplay = list(mongo.db.notes.find({"author": username}).distinct("note_text"))
-    return render_template("notepad.html", notes=notes, notesdisplay=notesdisplay)
+    notesdisplay = list(mongo.db.notes.find(
+        {"author": username}).distinct("note_text"))
+    return render_template("notepad.html", notes=notes,
+                           notesdisplay=notesdisplay)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -147,7 +151,8 @@ def profile(username):
         chapnum = mongo.db.chapters.count({"author": username})
         books = list(mongo.db.books.find())
         chapters = list(mongo.db.chapters.find())
-        notesdisplay = list(mongo.db.notes.find({"author": username}).distinct("note_text"))
+        notesdisplay = list(mongo.db.notes.find(
+            {"author": username}).distinct("note_text"))
 
         return render_template(
             "profile.html", username=username,
@@ -180,9 +185,11 @@ def add_book():
         return redirect(url_for("get_books"))
     username = mongo.db.users.find_one(
             {"username": session['user']})["username"]
-    notesdisplay = list(mongo.db.notes.find({"author": username}).distinct("note_text"))
+    notesdisplay = list(mongo.db.notes.find(
+        {"author": username}).distinct("note_text"))
     notes = list(mongo.db.notes.find().distinct("note_text"))
-    return render_template("add_book.html", notes=notes, notesdisplay=notesdisplay)
+    return render_template("add_book.html", notes=notes,
+                           notesdisplay=notesdisplay)
 
 
 @app.route("/edit_book/<book_id>", methods=["GET", "POST"])
@@ -204,7 +211,8 @@ def edit_book(book_id):
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     username = mongo.db.users.find_one(
             {"username": session['user']})["username"]
-    notesdisplay = list(mongo.db.notes.find({"author": username}).distinct("note_text"))
+    notesdisplay = list(mongo.db.notes.find(
+        {"author": username}).distinct("note_text"))
     return render_template(
         "edit_book.html", book=book, notes=notes, notesdisplay=notesdisplay)
 
@@ -235,11 +243,12 @@ def add_chapter():
 
     username = mongo.db.users.find_one(
             {"username": session['user']})["username"]
-    notesdisplay = list(mongo.db.notes.find({"author": username}).distinct("note_text"))
+    notesdisplay = list(mongo.db.notes.find(
+        {"author": username}).distinct("note_text"))
     books = mongo.db.books.find().sort("book_name", 1)
     notes = list(mongo.db.notes.find().distinct("note_text"))
     return render_template("add_chapter.html",
-            books=books, notes=notes, notesdisplay=notesdisplay)
+                           books=books, notes=notes, notesdisplay=notesdisplay)
 
 
 @app.route("/edit_chapter/<chapter_id>", methods=["GET", "POST"])
