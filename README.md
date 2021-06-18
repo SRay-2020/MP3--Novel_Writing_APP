@@ -155,7 +155,11 @@ Two fonts were chosen for this project -
 
 The first of which is 'Grenze & Gotisch'  - This font was chosen for it's old world gothic printing aesthetic,  it is reminiscent of the font a type setter would have used and git in perfectly with the desired affect.
 
+<img src="static/img/mp3samplefont.png"> 
+
 The second font used is 'Sora' – This font was chosen because it's a simple non distracting font and one that a writer may be used to.
+
+<img src="static/img/mp3sampletext2.png"> 
 
 Colour scheme -
 
