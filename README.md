@@ -15,7 +15,7 @@
 
 ### **MOCKUPS**
 
-<img src="static/img/mp3colourscheme.png">
+<img src="static/img/mp3amiresponsive.png">
 
 
 A digital render of how the site would look on different devices and screen sizes 
@@ -238,7 +238,9 @@ AmIResponsive (website) - To ensure site is responsive and create mockup
 
 #### **Code tests -**
 
-The CSS code was passed through W3C CSS Validator and final version contained no errors. It was also passed through AutoPrefixer Online to parse CSS and add vendor prefixes.
+The CSS code was passed through W3C CSS Validator and final version contained no errors. It was also passed through AutoPrefixer Online to parse CSS and add vendor prefixes to ensure vaidity.
+
+<img src="static/img/mp3cssvalidation.png">
 
 The HTML code was passed through W3C HTML Validator and FreeFormatter.com to ensure final version contained no errors.
 
