@@ -45,14 +45,14 @@
             <li>
                 <a href="{{ url_for('get_books') }}">
                     <i class="fas fa-book"></i>
-                    <span class="links_name" href="{{ url_for('get_books') }}">Books</span>
+                    <span class="links_name">Books</span>
                 </a>
                 <span class="tooltip">Books</span>
             </li>
             <li>
                 <a href="{{ url_for('get_chapters') }}">
                     <i class="fas fa-bookmark"></i>
-                    <span class="links_name" href="{{ url_for('get_chapters') }}">Chapters</span>
+                    <span class="links_name">Chapters</span>
                 </a>
                 <span class="tooltip">Chapters</span>
             </li>
@@ -67,7 +67,7 @@
             <li>
                 <a href="{{ url_for('profile', username=session['user']) }}">
                     <i class="fas fa-user-circle"></i>
-                    <span class="links_name" href="{{ url_for('profile', username=session['user']) }}">Profile</span>
+                    <span class="links_name">Profile</span>
                 </a>
                 <span class="tooltip">Profile</span>
             </li>
