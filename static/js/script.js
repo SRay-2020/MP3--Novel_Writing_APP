@@ -5,13 +5,6 @@ $(document).ready(function(){
      $('.modal').modal();
 });
 
-// const card = document.querySelector('.card__inner');
-
-// card.addEventListener('click', function() {
-//     card.classList.toggle('is-flipped')
-// });
-       
-
 const card = document.querySelectorAll(".card__inner");
 
 function flipCard() {

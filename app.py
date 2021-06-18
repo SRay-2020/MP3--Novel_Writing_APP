@@ -20,7 +20,6 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# app name
 @app.errorhandler(404)
 # inbuilt function which takes error as parameter
 def not_found(e):
@@ -306,4 +305,4 @@ def add_note():
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)

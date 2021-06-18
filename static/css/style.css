@@ -40,9 +40,6 @@ footer {
 
 /* flashed messages */
 
-/* .flashes {
-    transform: translate(55%, 58%);
-} */
 
 .flashes h4 {
     line-height: 2;
@@ -77,11 +74,9 @@ footer {
     left: 20%;
     transition: all 0.5s ease;
     padding-top: 5%;
-
 }
 
 .main-test-text {
-
     font-size: 2rem;
     font-weight: 500;
     color: #11101d;
@@ -98,7 +93,6 @@ nav {
 }
 
 .navbar-style {
-    /* background-color: #9FA8DA; */
      background-color: #37474f;
 }
 
@@ -112,8 +106,6 @@ nav {
     margin: 0;
 }
 
-
-
 /* BOOKS PAGE */
 
 .book-page-container {
@@ -122,19 +114,6 @@ nav {
     justify-content: space-around;
     margin-bottom: 5rem;
 }
-
-/* .book-page-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-left:-37%;
-    margin-top: 10%;
-    align-items: center;
-    margin-right: 1%;
-    height: 50vh;
-    width: 70vw;
-    left: 156px;
-} */
 
 
 .create-book-background {
@@ -395,7 +374,6 @@ nav {
     perspective: 1000px;
     border-radius: 5%;
     background-color: #c5cae9;
-    /* border: 3px solid rgb(75, 53, 43); */
     box-shadow: none;
 }
 
@@ -431,8 +409,6 @@ nav {
     flex-wrap: wrap;
     text-align: center;
     padding: 3px;
-    /* align-items: center; */
-    /* justify-content: center; */
 }
 
 .card__face--front h2 {
@@ -533,9 +509,6 @@ font-size: 1rem;
     transform: translate(13rem, 0rem);
 }
 
-/* .profile-list-top {
-    transform: translate(5rem, 0rem);
-} */
 
 .profile-lists {
     padding-bottom: 3rem;
